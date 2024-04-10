@@ -17,7 +17,7 @@ export default function Home() {
     dispatch(getCars())
   } , [])
 
-  console.log('LOG ::: CARS' , cars)
+  //console.log('LOG ::: CARS' , cars)
 
   return (
     <div>

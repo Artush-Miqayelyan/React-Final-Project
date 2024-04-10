@@ -1,10 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getCars } from '../../API/autoshopAPI'
 
-const initialState = {
-    isLoading: false,
-    cars: []
-}
+const initialState = []
 
 export const autoshopSlice = createSlice({
     name: "autoshop",
@@ -15,13 +12,13 @@ export const autoshopSlice = createSlice({
     extraReducers: builder => {
         builder
         .addCase(getCars.fulfilled , (state , action) => {
-            state.cars.push(...action.payload)
+            return action.payload
         })
     } 
 })
 
 export const {} = autoshopSlice.actions
 
-export const selectCars = (state) => state.autoshop.cars
+export const selectCars = (state) => state.autoshop
 
 export default autoshopSlice.reducer
