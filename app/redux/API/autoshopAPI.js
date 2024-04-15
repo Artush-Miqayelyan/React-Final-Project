@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-const Url = 'http://localhost:3000/cars'
+const Url = 'http://localhost:4000/cars'
 
 export const getCars = createAsyncThunk(
     'autoshop/getCars',
