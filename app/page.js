@@ -6,6 +6,8 @@ import {
   selectCars
 } from './redux/features/autoshop/autoshopSlice'
 import { getCars } from "./redux/API/autoshopAPI"
+import Header from "./components/header/header"
+import "./global.css"
 
 export default function Home() {
 
@@ -17,11 +19,11 @@ export default function Home() {
     dispatch(getCars())
   } , [])
 
-  //console.log('LOG ::: CARS' , cars)
+  console.log('LOG ::: CARS' , cars)
 
   return (
-    <div>
-      Home
+    <div className="main">
+      <Header/>
     </div>
   )
 }
