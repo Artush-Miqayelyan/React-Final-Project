@@ -22,7 +22,7 @@ export default function Home() {
   console.log('LOG ::: CARS' , cars)
 
   return (
-    <div className="">
+    <div className="main">
       <Header/>
     </div>
   )

@@ -2,9 +2,9 @@ import styles from "./header.module.css"
 
 function Header(){
     return(
-        <div>
+        <header className={styles.header}>
             Header
-        </div>
+        </header>
     )
 }
 
