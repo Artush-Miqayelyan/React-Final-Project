@@ -7,6 +7,7 @@ import {
 } from './redux/features/autoshop/autoshopSlice'
 import { getCars } from "./redux/API/autoshopAPI"
 import Header from "./components/header/header"
+import Main from "./components/main/main"
 import "./global.css"
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
   return (
     <div className="main">
       <Header/>
+      <Main />
     </div>
   )
 }
