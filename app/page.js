@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from "react"
-import { useSelector , useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import {
   selectCars
 } from './redux/features/autoshop/autoshopSlice'
@@ -17,13 +17,13 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getCars())
-  } , [])
+  }, [])
 
-  console.log('LOG ::: CARS' , cars)
+  console.log('LOG ::: CARS', cars)
 
   return (
-    <div className="main">
-      <Header/>
+    <div className="main" id="main">
+      <Header />
     </div>
   )
 }
