@@ -14,7 +14,7 @@ export const autoshopSlice = createSlice({
         .addCase(getCars.fulfilled , (state , action) => {
             return action.payload
         })
-    } 
+    }
 })
 
 export const {} = autoshopSlice.actions
