@@ -41,6 +41,7 @@ import { getCars } from "./redux/API/autoshopAPI"
 import Header from "./components/header/header"
 import FilterBar from './components/FilterBar/filterBar'
 import "./global.css"
+import { Filter } from "@mui/icons-material"
 
 export default function Home() {
 
@@ -53,8 +54,10 @@ export default function Home() {
 
   console.log('LOG ::: CARS', cars)
 
-  return <div>
-    <Header />
-    <FilterBar />
-  </div>
+  return <div className="main" id="main">
+      <Header/>
+      <FilterBar />
+      <Main />
+    </div>
+  
 }

@@ -2,7 +2,7 @@
 import styles from "./header.module.css"
 import MenuIcon from '@mui/icons-material/Menu';
 import Image from 'next/image'
-import Logo from '../../../public/autoshopLogo.jpg'
+import Logo from '../../../public/logo.png'
 import TextField from '@mui/material/TextField';
 import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
 import MessageIcon from '@mui/icons-material/Message';
@@ -34,9 +34,8 @@ function Header() {
                     <Image
                         priority
                         src={Logo}
-                        width={159}
-                        height={66}
-                        alt="autoshopLogo"
+                        fill
+                        alt="Logo"
                     />
                 </Link>
 
