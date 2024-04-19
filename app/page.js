@@ -8,6 +8,37 @@ import {
 import { getCars } from "./redux/API/autoshopAPI"
 import Header from "./components/header/header"
 import Main from "./components/main/main"
+import "./global.css"
+
+export default function Home() {
+
+  const dispatch = useDispatch()
+  const cars = useSelector(selectCars)
+
+
+  useEffect(() => {
+    dispatch(getCars())
+  }, [])
+
+  console.log('LOG ::: CARS', cars)
+
+  return (
+    <div className="main">
+      <Header/>
+      <Main />
+    </div>
+  )
+}
+
+'use client'
+
+import { useEffect } from "react"
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  selectCars
+} from './redux/features/autoshop/autoshopSlice'
+import { getCars } from "./redux/API/autoshopAPI"
+import Header from "./components/header/header"
 import FilterBar from './components/FilterBar/filterBar'
 import "./global.css"
 
@@ -22,13 +53,6 @@ export default function Home() {
 
   console.log('LOG ::: CARS', cars)
 
-  return <div className="main" id="main">
-  return (
-    <div className="main">
-      <Header/>
-      <Main />
-    </div>
-  )
   return <div>
     <Header />
     <FilterBar />
