@@ -10,6 +10,7 @@ import Header from "./components/header/header"
 import Main from "./components/main/main"
 import FilterBar from './components/FilterBar/filterBar'
 import "./global.css"
+import { Filter } from "@mui/icons-material"
 
 export default function Home() {
 
@@ -23,14 +24,9 @@ export default function Home() {
   console.log('LOG ::: CARS', cars)
 
   return <div className="main" id="main">
-  return (
-    <div className="main">
       <Header/>
+      <FilterBar />
       <Main />
     </div>
-  )
-  return <div>
-    <Header />
-    <FilterBar />
-  </div>
+  
 }
