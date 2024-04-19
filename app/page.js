@@ -22,6 +22,7 @@ export default function Home() {
 
   console.log('LOG ::: CARS', cars)
 
+  return <div className="main" id="main">
   return (
     <div className="main">
       <Header/>
