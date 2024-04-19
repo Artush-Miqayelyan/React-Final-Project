@@ -1,5 +1,88 @@
-.header{
+.header {
+    margin-top: 6px;
     width: 80%;
-    height: 100px;
-    background-color: aquamarine;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.07) ;
+}
+.menuSec {
+    width: 7%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.menuSec:hover{
+    background-color: #D6D7D9;
+    transition: all 800ms ease;
+}
+.logoSec {
+    width: 13%;
+    height: 90%;
+    cursor: pointer;
+}
+
+.inputSec {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login_help_diller_Sec {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.dillerSec {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+.dillerSec:hover{
+    background-color: #D6D7D9;
+    transition: all 800ms ease;
+}
+.helpSec {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.helpSec:hover{
+    background-color: #D6D7D9;
+    transition: all 800ms ease;
+}
+.accountSec{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+    cursor: pointer;
+}
+.accountSec:hover{
+    background-color: #D6D7D9;
+    transition: all 800ms ease;
+}
+.soldSec {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
