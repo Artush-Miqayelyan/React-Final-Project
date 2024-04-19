@@ -41,22 +41,23 @@ function Header() {
 
             </div>
             <div className={styles.inputSec}>
-                <TextField fullWidth size="small" id="outlined-basic" label="մակնիշ, մոդել, տարեթիվ" variant="outlined" />
+                <TextField fullWidth size="small" id="outlined-basic" label="mark , model , year" variant="outlined" />
             </div>
             <div className={styles.login_help_diller_Sec}>
                 <div className={styles.dillerSec}>
                     <DirectionsCarFilledIcon fontSize="large" />
-                    <p>Դիլերներ</p>
+                    <p>Dillers</p>
                 </div>
                 <div className={styles.helpSec} onClick={showMessages}>
                     <MessageIcon fontSize="large" />
+                    <p>Messages</p>
                 </div>
                 <div className={styles.accountSec}>
                     <AccountBoxIcon fontSize="large" />
-                    <p>Իմ Էջը</p>
+                    <p>My Page</p>
                 </div>
                 <div className={styles.soldSec}>
-                    <Button variant="contained">Վաճառել</Button>
+                    <Button variant="contained">Sell</Button>
                 </div>
             </div>
         </header>
