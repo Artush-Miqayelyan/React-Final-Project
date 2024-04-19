@@ -1,0 +1,15 @@
+.dropdowns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 80px;
+    gap: 90px;
+}
+
+.year{
+    display: flex;
+}
+
+.price{
+    display: flex;
+}

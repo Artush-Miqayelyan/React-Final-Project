@@ -1,0 +1,19 @@
+.filterBar{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.searchBtn{
+    width: 30%;
+    left: 340px;
+}
+
+.checkboxesAndToggleBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 90px;
+}

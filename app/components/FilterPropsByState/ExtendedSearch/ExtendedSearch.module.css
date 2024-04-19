@@ -1,0 +1,22 @@
+.dropdowns{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
+}
+
+.extended{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.checkboxes{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: center;
+}
