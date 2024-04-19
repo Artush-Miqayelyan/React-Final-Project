@@ -21,7 +21,7 @@ export default function Home() {
 
   console.log('LOG ::: CARS', cars)
 
-  return <div>
+  return <div className="main" id="main">
     <Header />
     <FilterBar />
   </div>
