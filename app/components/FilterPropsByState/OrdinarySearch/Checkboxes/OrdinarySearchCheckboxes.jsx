@@ -5,7 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
 
-function OridnarySearchCheckboxes() {
+const OridnarySearchCheckboxes = React.memo(() => {
 
     const [customsClearedCheckboxValue, setCustomsClearedCheckboxValue] = useState(false)
     const [installmentPaymentCheckboxValue, setInstallmentPaymentCheckboxValue] = useState(false)
@@ -47,6 +47,6 @@ function OridnarySearchCheckboxes() {
             />
         </div>
     );
-}
+})
 
 export default OridnarySearchCheckboxes;

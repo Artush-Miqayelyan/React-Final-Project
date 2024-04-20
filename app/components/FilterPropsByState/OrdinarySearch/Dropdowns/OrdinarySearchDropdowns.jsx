@@ -19,10 +19,6 @@ const OrdinarySearchDropdowns = React.memo(() => {
         const [priceAtInputValue, setPriceAtInputValue] = useState('')
         const [priceToInputValue, setPriceToInputValue] = useState('')
 
-        useEffect(() => {
-            console.log('OridnaryDropdowns Rerendered with memo')
-        } , )
-
         function handleMarksInputChange(e, v) {
             console.log("Value ::: ", v)
             if (!MARKS.includes(v)) {
