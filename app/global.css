@@ -9,6 +9,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 60px;
+    gap: 45px;
     position: relative;
 }

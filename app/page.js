@@ -22,8 +22,6 @@ export default function Home() {
     dispatch(getCars())
   }, [])
 
-  console.log('LOG ::: CARS', cars)
-
   return <div className="main" id="main">
       <Header/>
       <FilterBar />

@@ -1,7 +1,7 @@
 .carCard{
    display: flex;
    flex-wrap:wrap;
-   gap: 8px;
+   gap: 1px;
    width: 200px;
    height: 210px;
    border: 2px solid rgb(78, 75, 75);
@@ -15,7 +15,7 @@
     height: 60%;
 }
 .name {
-    color:rgb(0, 255, 247);
+    color: blue;
     margin: 5px;
 }
 
@@ -24,10 +24,9 @@
     justify-content: space-between;
     width:100%;
     height: 20px;
-    margin: 2px;
-  
+    margin: 10px;
 }
+
 .carCard:hover{
     opacity: 0.9;
-   
 }
