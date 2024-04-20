@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './OrdinarySearchDropdowns.module.css'
 import FILTER_DROPDOWNS from '../../../../constants/FilterDropdownsCheckboxes/Dropdowns'
 import TextField from '@mui/material/TextField';
