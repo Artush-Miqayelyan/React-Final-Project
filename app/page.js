@@ -8,6 +8,7 @@ import {
 } from './redux/features/autoshop/autoshopSlice'
 import { getCars } from "./redux/API/autoshopAPI"
 import Header from "./components/header/header"
+import Main from "./components/main/main"
 import FilterBar from './components/FilterBar/filterBar'
 import "./global.css"
 import { Filter } from "@mui/icons-material"
