@@ -1,12 +1,13 @@
 .header {
-    margin-top: 6px;
     width: 80%;
     height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky;
+    position: fixed;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.07) ;
+    background-color: white;
+    z-index: 99;
 }
 .menuSec {
     width: 7%;
