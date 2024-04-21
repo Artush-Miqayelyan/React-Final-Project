@@ -18,24 +18,20 @@ function Main() {
   const minOfficialDiller = minimumVersion(cars, "isOfficialDiller", true);
 
   return (
-
     <section className={styles.main} >
-
       <div className={styles.topAnnouncements}>
         <h3 className={styles.title}>Top Announcements</h3>
         <div className={styles.carsContainer}>
           {ontop ? <>
             {minOntop.length > 0 && minOntop.map((car) => {
-
               return <CarCard
-                img={car.img[0]}
+                img={car.img[0].imgUrl}
                 price={car.price}
                 year={car.year}
                 mark={car.brand}
                 model={car.model}
                 priority={car.priority}
               />
-
             })}
             <Button variant="contained" onClick={() => setOntop(!ontop)}>Show more</Button>
           </> : <>
@@ -47,7 +43,6 @@ function Main() {
                   year={car.year}
                   mark={car.brand}
                   model={car.model}
-
                 />
               }
             })}
@@ -60,28 +55,24 @@ function Main() {
         <div className={styles.carsContainer}>
           {urgentSale ? <>
             {minUrgentSale.length > 0 && minUrgentSale.map((car) => {
-
               return <CarCard
-                img={car.img[0]}
+                img={car.img[0].imgUrl}
                 price={car.price}
                 year={car.year}
                 mark={car.brand}
                 model={car.model}
-
               />
-
             })}
             <Button variant="contained" onClick={() => setUrgentSale(!urgentSale)}>Show more</Button>
           </> : <>
             {cars.length > 0 && cars.map((car) => {
               if (car.priority === "urgent sale") {
                 return <CarCard
-                  img={car.img[0]}
+                  img={car.img[0].imgUrl}
                   price={car.price}
                   year={car.year}
                   mark={car.brand}
                   model={car.model}
-
                 />
               }
             })}
@@ -95,16 +86,13 @@ function Main() {
         <div className={styles.carsContainer}>
           {officialDiller ? <>
             {minOfficialDiller.length > 0 && minOfficialDiller.map((car) => {
-
               return <CarCard
                 img={car.img[0]}
                 price={car.price}
                 year={car.year}
                 mark={car.brand}
                 model={car.model}
-
               />
-
             })}
             <Button variant="contained" onClick={() => setOfficialDiller(!officialDiller)}>Show more</Button>
           </> : <>
@@ -116,7 +104,6 @@ function Main() {
                   year={car.year}
                   mark={car.brand}
                   model={car.model}
-
                 />
               }
             })}
