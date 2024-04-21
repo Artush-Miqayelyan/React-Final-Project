@@ -9,7 +9,6 @@ import MessageIcon from '@mui/icons-material/Message';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import Button from '@mui/material/Button';
 import Link from "next/link";
-import Modal from "../modal/modal";
 import { useState } from "react";
 
 function Header() {
@@ -22,9 +21,6 @@ function Header() {
 
     return (
         <header className={styles.header}>
-            {showMenuModal && <Modal isLeftSide={true} showModal={showMenuModal} showModalCallbek={showMenu} />}
-            {showMessagesModal && <Modal isLeftSide={false} showModal={showMessagesModal} showModalCallbek={showMessages} />}
-
 
             <div className={styles.menuSec} onClick={showMenu}>
                 <MenuIcon fontSize="large" />
@@ -36,6 +32,7 @@ function Header() {
                         src={Logo}
                         fill
                         alt="Logo"
+                        objectFit="cover"
                     />
                 </Link>
 
