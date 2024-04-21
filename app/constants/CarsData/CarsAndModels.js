@@ -1,5 +1,5 @@
 const CARS_AND_MODELS = {
-    "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "GLE-Class", "GLC-Class", "A-Class", "CLA-Class", "GLS-Class", "B-Class", "G-Class", "SL-Class", "SLC-Class", "CLS-Class", "AMG GT"],
+    "Mercedes-Benz": ["C-Class", "E-Class", "S-Class", "GLE-Class", "GLC-Class", "A-Class", "CLA-Class", "GLS-Class", "B-Class", "G-Class", "SL-Class", "EQC", "CLS-Class", "AMG GT"],
     "BMW": ["3 Series", "5 Series", "X3", "X5", "1 Series", "7 Series", "X1", "X7", "2 Series", "4 Series", "6 Series", "8 Series", "Z4", "M2", "M3"],
     "Toyota": ["Corolla", "Camry", "Rav4", "Corolla Hatchback", "Highlander", "Prius", "Tacoma", "Sienna", "Yaris", "4Runner", "Land Cruiser", "C-HR", "Avalon", "Supra", "Tundra"],
     "Ford": ["Focus", "Fusion", "Escape", "Explorer", "Mustang", "Edge", "F-150", "Ranger", "Expedition", "Bronco", "Taurus", "EcoSport", "Flex", "Transit", "Maverick"],

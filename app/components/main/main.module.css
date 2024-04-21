@@ -37,7 +37,7 @@
 .carsContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 65px;
+    gap: 43px;
     justify-content: center;
 }
 
