@@ -9,7 +9,6 @@ import { getCars } from "./redux/API/autoshopAPI"
 import Main from "./components/main/main"
 import FilterBar from './components/FilterBar/filterBar'
 import "./global.css"
-import { Filter } from "@mui/icons-material"
 
 export default function Home() {
 
@@ -20,9 +19,9 @@ export default function Home() {
     dispatch(getCars())
   }, [])
 
-  return <div className="main" id="main">
-      <FilterBar />
-      <Main />
-    </div>
-  
+  return <div className="main" >
+    <FilterBar />
+    <Main />
+  </div>
+
 }
