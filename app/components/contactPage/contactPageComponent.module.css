@@ -1,0 +1,22 @@
+.a{
+    text-decoration: none;
+}
+
+.ContactPage{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 200px;
+}
+
+.infoAboutContact{
+    font-size: 110%;
+}
+
+.inputsForUser{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}

@@ -9,8 +9,6 @@ function FilterBar() {
 
     const [IsExtendedSearchOpen, setIsExtendedSearchOpen] = useState(false)
 
-    //ordinarysearch y memoacnel////////////////////////////////////////////////////////////////
-
     return (
         <div className={styles.filterBar}>
             <div className={styles.filterDropdownsAndCheckboxesContainer}>
