@@ -1,0 +1,28 @@
+.about {
+    margin-top: 80px;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position:relative
+}
+
+.title {
+    margin:90px;
+    width:70%;
+    position: absolute;
+   
+}
+
+.aboutInfo {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 150px;
+
+}
+
+.text {
+    padding: 12px;
+}
