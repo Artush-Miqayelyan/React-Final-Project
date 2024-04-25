@@ -1,0 +1,38 @@
+.login{
+    width: 380px;
+    height: 500px;
+    background-color: #FBFBFB;
+    margin-top: 80px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.signin{
+    font-size: 23px;
+    font-weight: 500;
+}
+.checkbox{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.forgot{
+    color: #1976D2;
+    cursor: pointer;
+}
+.signinBtn{
+    width: 320px;
+}
+.signinwith{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.socnetwork{
+    width: 320px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

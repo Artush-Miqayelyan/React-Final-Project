@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import autoshopSlice from './features/autoshop/autoshopSlice'
+import filteredAutoshopSlice from './features/mainFilterSlice/mainFilterSlice'
+import filterPropsSlice from './features/filterProps/filterPropsSlice'
 
 export const store = configureStore({
     reducer: {
-        autoshop: autoshopSlice
+        autoshop: autoshopSlice,
+        filteredAutoshop: filteredAutoshopSlice,
+        filterProps: filterPropsSlice
     }
 })

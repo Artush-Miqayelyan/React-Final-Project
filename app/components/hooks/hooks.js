@@ -11,9 +11,9 @@ export function useClickOutside(callbeck) {
                 callbeck()
             }
         }
-        const main = document.getElementById("main")
-        main.addEventListener("click", handleClickOutSide)
-        return () => main.removeEventListener("click", handleClickOutSide)
+        const body = document.getElementById("body")
+        body.addEventListener("click", handleClickOutSide)
+        return () => body.removeEventListener("click", handleClickOutSide)
 
     }, [ref])
 

@@ -4,7 +4,6 @@ import Favicon from "../public/favicon.ico"
 import Header from "./components/header/header";
 import './global.css'
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -13,13 +12,12 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
-
   return (
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <div className="body">
-            <Header />
+          <div className="body" id="body">    
+            <Header/>
             {children}
           </div>
         </Providers>

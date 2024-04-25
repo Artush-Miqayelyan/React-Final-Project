@@ -25,6 +25,7 @@ function Main() {
           {ontop ? <>
             {minOntop.length > 0 && minOntop.map((car) => {
               return <CarCard
+                key={car.id}
                 img={car.img[0].imgUrl}
                 price={car.price}
                 year={car.year}
@@ -38,6 +39,7 @@ function Main() {
             {cars.length > 0 && cars.map((car) => {
               if (car.priority === "ontop") {
                 return <CarCard
+                key={car.id}
                   img={car.img[0]}
                   price={car.price}
                   year={car.year}
@@ -56,6 +58,7 @@ function Main() {
           {urgentSale ? <>
             {minUrgentSale.length > 0 && minUrgentSale.map((car) => {
               return <CarCard
+              key={car.id}
                 img={car.img[0].imgUrl}
                 price={car.price}
                 year={car.year}
@@ -68,6 +71,7 @@ function Main() {
             {cars.length > 0 && cars.map((car) => {
               if (car.priority === "urgent sale") {
                 return <CarCard
+                key={car.id}
                   img={car.img[0].imgUrl}
                   price={car.price}
                   year={car.year}
@@ -87,6 +91,7 @@ function Main() {
           {officialDiller ? <>
             {minOfficialDiller.length > 0 && minOfficialDiller.map((car) => {
               return <CarCard
+              key={car.id}
                 img={car.img[0]}
                 price={car.price}
                 year={car.year}
@@ -99,6 +104,7 @@ function Main() {
             {cars.length > 0 && cars.map((car) => {
               if (car.isOfficialDiller === true) {
                 return <CarCard
+                key={car.id}
                   img={car.img[0]}
                   price={car.price}
                   year={car.year}
@@ -116,4 +122,3 @@ function Main() {
 }
 
 export default Main;
-

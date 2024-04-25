@@ -7,7 +7,7 @@
     position: fixed;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.07) ;
     background-color: white;
-    z-index: 99;
+    z-index: 1;
 }
 .menuSec {
     width: 7%;
@@ -18,7 +18,7 @@
     cursor: pointer;
 }
 .menuSec:hover{
-    background-color: #D6D7D9;
+    background-color: #E8EBF0;
     transition: all 800ms ease;
 }
 .logoSec {
@@ -53,7 +53,7 @@
     cursor: pointer;
 }
 .dillerSec:hover{
-    background-color: #D6D7D9;
+    background-color: #E8EBF0;
     transition: all 800ms ease;
 }
 .helpSec {
@@ -65,7 +65,7 @@
     cursor: pointer;
 }
 .helpSec:hover{
-    background-color: #D6D7D9;
+    background-color: #E8EBF0;
     transition: all 800ms ease;
 }
 .accountSec{
@@ -75,9 +75,10 @@
     width: 20%;
     height: 100%;
     cursor: pointer;
+    position: relative;
 }
 .accountSec:hover{
-    background-color: #D6D7D9;
+    background-color: #E8EBF0;
     transition: all 800ms ease;
 }
 .soldSec {
