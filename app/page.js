@@ -9,6 +9,7 @@ import { getCars } from "./redux/API/autoshopAPI"
 import Main from "./components/main/main"
 import FilterBar from './components/FilterBar/filterBar'
 import "./global.css"
+import Menu from "./components/menu/menu"
 
 export default function Home() {
 
@@ -20,6 +21,7 @@ export default function Home() {
   }, [])
 
   return <div className="main" >
+    <Menu/>
     <FilterBar />
     <Main />
   </div>

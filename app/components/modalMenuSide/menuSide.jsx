@@ -13,7 +13,7 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import Link from "next/link";
 
-function MenuSide({closeModal}) {
+function MenuSide({ closeModal }) {
     return (
         <div className={styles.menuSide}>
             <Link href="/login">
