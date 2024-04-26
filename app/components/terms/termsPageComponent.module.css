@@ -1,0 +1,11 @@
+.a{
+    text-decoration: none;
+}
+
+.Info{
+    margin-top: 163%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 113%;
+}
