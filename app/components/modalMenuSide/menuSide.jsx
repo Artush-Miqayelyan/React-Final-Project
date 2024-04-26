@@ -23,35 +23,37 @@ function MenuSide({ closeModal }) {
                 </div>
             </Link>
             <div className={styles.items}>
-                <div className={styles.item}>
-                    <MessageIcon fontSize="large" color="primary" />
-                    <p>Messenges</p>
-                </div>
+                <Link href="\messenges">
+                    <div className={styles.item}  onClick={closeModal}>
+                        <MessageIcon fontSize="large" color="primary" />
+                        <p>Messenges</p>
+                    </div>
+                </Link>
                 <Link href="/dealers">
-                    <div className={styles.item}>
+                    <div className={styles.item}  onClick={closeModal}>
                         <DirectionsCarFilledIcon fontSize="large" color="primary" />
                         <p>Dealers</p>
                     </div>
                 </Link>
                 <Link href="/advertisement">
-                    <div className={styles.item}>
+                    <div className={styles.item}  onClick={closeModal}>
                         <AddModeratorIcon fontSize="large" color="primary" />
                         <p>Advertisement</p>
                     </div>
                 </Link>
                 <Link href="/terms">
-                    <div className={styles.item}>
+                    <div className={styles.item}  onClick={closeModal}>
                         <GavelIcon fontSize="large" color="primary" />
                         <p>Terms of Use</p>
                     </div>
                 </Link>
                 <Link href="/help">
-                    <div className={styles.item}>
+                    <div className={styles.item}  onClick={closeModal}>
                         <HelpCenterIcon fontSize="large" color="primary" />
                         <p>Help</p>
                     </div>
                 </Link>
-                <Link href="/contact">
+                <Link href="/contact"  onClick={closeModal}>
                     <div className={styles.item}>
                         <ContactPhoneIcon fontSize="large" color="primary" />
                         <p>Contact</p>
