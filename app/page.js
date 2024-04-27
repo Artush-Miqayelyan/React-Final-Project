@@ -19,6 +19,7 @@ import {
   selectFilteredCars
 } from './redux/features/mainFilterSlice/mainFilterSlice'
 
+import Menu from "./components/menu/menu"
 
 export default function Home() {
 
@@ -45,6 +46,7 @@ export default function Home() {
   // } , [users])
 
   return <div className="main" >
+    <Menu/>
     <FilterBar />
     <Main />
   </div>

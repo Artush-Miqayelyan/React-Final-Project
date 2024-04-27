@@ -32,7 +32,7 @@ function Header() {
     return (
         <>{modalPosition &&
             <Modal position={modalPosition} closeModal={closeModal}>
-                {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : <SignIn />}
+                {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal}/> : <SignIn />}
             </Modal>}
             <header className={styles.header}>
                 <div className={styles.menuSec} onClick={openMenuModal}>
