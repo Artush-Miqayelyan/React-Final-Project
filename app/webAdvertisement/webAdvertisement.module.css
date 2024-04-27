@@ -1,4 +1,4 @@
-.rules {
+.advertisement {
     margin-top: 80px;
     width: 100%;
     min-height: 100vh;
@@ -12,21 +12,20 @@
     margin:70px;
     width:70%;
     position: absolute;
-   
 }
 
-.rulesInfo {
+.info {
     width: 70%;
     display: flex;
     flex-direction: column;
     margin-top: 150px;
-
 }
 
-.rulesText {
-    padding: 12px;
+.text {
+    padding: 20px;
+  
 }
 
-.link{
-    text-decoration-line: none;
+.link {
+   text-decoration-line: none ;
 }

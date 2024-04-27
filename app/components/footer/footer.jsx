@@ -27,13 +27,13 @@ function Footer() {
              <Link className ={styles.link} href ="/rules" > Rules of use </Link> 
              </div>
              <div className = {styles.info}> 
-             <Link className ={styles.link} href ="" > Advertisement </Link> 
+             <Link className ={styles.link} href ="/webAdvertisement" > Advertisement </Link> 
              </div>
              <div  className = {styles.info}> 
              <Link className ={styles.link} href ="" > Help </Link> 
              </div>
              <div className = {styles.info}> 
-             <Link className ={styles.link} href ="" > Contact </Link> 
+             <Link className ={styles.link} href ="/contact" > Contact </Link> 
              </div>
          </div>
           <hr></hr>
