@@ -1,6 +1,6 @@
 import styles from "./footer.module.css"
 import Image from "next/image"
-import Logo from "../../../public/logo.png"
+import FooterLogo from "../../../public/footerLogo.png"
 import Link from "next/link"
 
 import { isDefinedPath } from "@/app/helpers/helperFunctions"
@@ -15,7 +15,7 @@ function Footer() {
             priority
             objectFit="cover"
             fill
-            src={Logo}
+            src={FooterLogo}
             color="black"
             alt="Logo"
           /></Link>

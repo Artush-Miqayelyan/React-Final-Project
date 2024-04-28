@@ -39,8 +39,3 @@
     height: 90%;
     position: absolute;
 }
-
-.logo:hover {
-    width: 130%;
-    transition: all 400ms ease;
-}
