@@ -1,3 +1,4 @@
+
 'use client'
 
 import { useEffect } from "react"
@@ -11,6 +12,7 @@ import {
 import { getCars } from "./redux/API/autoshopAPI"
 import { getUsers } from "./redux/API/usersAPI"
 import Main from "./components/main/main"
+
 import FilterBar from './components/FilterBar/filterBar'
 import "./global.css"
 import { Filter } from "@mui/icons-material"
