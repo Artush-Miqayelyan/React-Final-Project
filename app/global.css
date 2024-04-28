@@ -20,3 +20,6 @@
     flex-direction: column;
     gap: 45px;
 }
+.overflovHidden{
+    overflow: hidden;
+}
