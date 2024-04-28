@@ -4,6 +4,7 @@ import Logo from "../../../public/logo.png"
 import Link from "next/link"
 function Footer() {
     return(
+       
         <div className = {styles.footerContainer}>
              <div className ={styles.footerTop}>
              <div className = {styles.logo}>
@@ -29,15 +30,13 @@ function Footer() {
              <div className = {styles.info}> 
              <Link className ={styles.link} href ="/webAdvertisement" > Advertisement </Link> 
              </div>
-             <div  className = {styles.info}> 
-             <Link className ={styles.link} href ="" > Help </Link> 
-             </div>
+            
              <div className = {styles.info}> 
              <Link className ={styles.link} href ="/contact" > Contact </Link> 
              </div>
-         </div>
-          <hr></hr>
-        </div>
+           </div>
+          
+       </div>
     )
 }
 

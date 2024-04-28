@@ -7,21 +7,21 @@ function Hello() {
             <h3> About the project </h3>
         </div>
        <div className = {styles.aboutInfo}>
-       <p  className = {styles.text}> 
-       <strong> Carshop </strong> website helps to buy and sell cars and other vehicles. </p>
+       <p > 
+ <strong>Carshop</strong> website helps to buy and sell cars and other vehicles. </p> <br></br>
 
-<p className = {styles.text}><strong> Carshop </strong> website was created recently. We think it has become a necessary and useful tool for both car enthusiasts and interested organizations.</p>
+<p ><strong> Carshop </strong> website was created recently. We think it has become a necessary and useful tool for both car enthusiasts and interested organizations.</p> <br></br>
 
-<p className = {styles.text}>Since the day of launch, we have constantly improved the site and offered new services, which allowed us not to give up our positions and maintain the leading role.:</p>
+<p >Since the day of launch, we have constantly improved the site and offered new services, which allowed us not to give up our positions and maintain the leading role.:</p><br></br>
 
-<p className = {styles.text}> It is probably one of the most visited automotive websites on the Armenian Internet. </p>
+<p > It is probably one of the most visited automotive websites on the Armenian Internet. </p> <br></br>
 
-<p className = {styles.text}>Today, <strong> Carshop</strong> has the largest database of vehicles for sale and is the most visited website in the field of buying and selling cars.
-</p>
+<p >Today, <strong> Carshop</strong> has the largest database of vehicles for sale and is the most visited website in the field of buying and selling cars.
+</p> <br></br>
 
-<p className = {styles.text}> We are pleased to introduce you to the latest technological solutions of <strong> Carshop</strong>, which make it much more convenient and easy to use it, from registration to placing an ad.</p>
+<p > We are pleased to introduce you to the latest technological solutions of <strong> Carshop</strong>, which make it much more convenient and easy to use it, from registration to placing an ad.</p> <br></br>
 
-<p  className = {styles.text}> Sincerely, <b> Carshop:</b></p>
+<p> Sincerely, <b> Carshop:</b></p> <br></br>
         
  
        </div>
