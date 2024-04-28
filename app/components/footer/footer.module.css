@@ -22,6 +22,7 @@
     justify-content: center;
     gap: 25px;
     align-items: center;
+    border-top: 1px solid grey;
 }
 
 .footerBottom a{

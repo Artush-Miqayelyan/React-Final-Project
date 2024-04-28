@@ -1,6 +1,5 @@
 import styles from "./menuSide.module.css"
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import MessageIcon from '@mui/icons-material/Message';
 import DirectionsCarFilledIcon from '@mui/icons-material/DirectionsCarFilled';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import AddModeratorIcon from '@mui/icons-material/AddModerator';
@@ -12,48 +11,59 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import Link from "next/link";
+import ProfileBarInMenu from '../ProfileForMenu/ProfileForMenu'
+import ProfileTools from '../ProfileToolsForMenu/ProfileTools'
+
+import { useSelector } from "react-redux";
+
+import {
+    selectIsLoggedIn
+} from '../../redux/features/IsLoggedIn/IsLoggedInSlice'
 
 function MenuSide({ closeModal }) {
+
+    const IsLoggedIn = useSelector(selectIsLoggedIn)
+
     return (
         <div className={styles.menuSide}>
-            <Link href="/login">
+            {IsLoggedIn === false ? <Link href="/login">
                 <div className={styles.singin} onClick={closeModal}>
                     <AccountBoxIcon sx={{ fontSize: "64px" }} color="primary" />
                     <p>Sign In</p>
                 </div>
-            </Link>
+            </Link> : <>
+                <ProfileBarInMenu />
+                <ProfileTools 
+                    closeModal={closeModal}
+                />
+            </>
+            }
             <div className={styles.items}>
-                <Link href="\messenges">
-                    <div className={styles.item}  onClick={closeModal}>
-                        <MessageIcon fontSize="large" color="primary" />
-                        <p>Messenges</p>
-                    </div>
-                </Link>
                 <Link href="/dealers">
-                    <div className={styles.item}  onClick={closeModal}>
+                    <div className={styles.item} onClick={closeModal}>
                         <DirectionsCarFilledIcon fontSize="large" color="primary" />
                         <p>Dealers</p>
                     </div>
                 </Link>
                 <Link href="/advertisement">
-                    <div className={styles.item}  onClick={closeModal}>
+                    <div className={styles.item} onClick={closeModal}>
                         <AddModeratorIcon fontSize="large" color="primary" />
                         <p>Advertisement</p>
                     </div>
                 </Link>
                 <Link href="/rules">
-                    <div className={styles.item}  onClick={closeModal}>
+                    <div className={styles.item} onClick={closeModal}>
                         <GavelIcon fontSize="large" color="primary" />
                         <p>Terms of Use</p>
                     </div>
                 </Link>
                 <Link href="/help">
-                    <div className={styles.item}  onClick={closeModal}>
+                    <div className={styles.item} onClick={closeModal}>
                         <HelpCenterIcon fontSize="large" color="primary" />
                         <p>Help</p>
                     </div>
                 </Link>
-                <Link href="/contact"  onClick={closeModal}>
+                <Link href="/contact" onClick={closeModal}>
                     <div className={styles.item}>
                         <ContactPhoneIcon fontSize="large" color="primary" />
                         <p>Contact</p>

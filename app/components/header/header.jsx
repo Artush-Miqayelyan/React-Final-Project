@@ -16,6 +16,12 @@ import MenuSide from "../modalMenuSide/menuSide";
 import MessengesSide from "../modalMessengesSide/messengesSide";
 import SignIn from "@/app/login/page";
 import { usePathname } from "next/navigation";
+import Avatar from '@mui/material/Avatar';
+
+import { useSelector } from "react-redux";
+import {
+    selectIsLoggedIn
+} from '../../redux/features/IsLoggedIn/IsLoggedInSlice'
 
 import { excludedPath, isDefinedPath } from "@/app/helpers/helperFunctions";
 
@@ -33,8 +39,10 @@ function Header() {
     const handleMouseEnter = () => setDropdownVisible(true);
     const handleMouseLeave = () => setDropdownVisible(false);
 
+    const IsLoggedIn = useSelector(selectIsLoggedIn)
+
     const pathname = usePathname()
-    console.log(pathname)
+
     useEffect(() => {
         if (modalPosition) {
             document.body.classList.add("overflovHidden")
@@ -73,18 +81,28 @@ function Header() {
                             <DirectionsCarFilledIcon fontSize="large" color="primary" />
                             <p>Dillers</p>
                         </div>
-                        <div className={styles.helpSec} onClick={openMessengesInModal} >
+                        <Link onClick={IsLoggedIn === false ? openMessengesInModal : null} href={IsLoggedIn === false ? '/' : '/account/messages'} className={styles.helpSec}>
                             <MessageIcon fontSize="large" color="primary" />
                             <p>Messages</p>
-                        </div>
-                        <div className={styles.accountSec} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                            <AccountBoxIcon fontSize="large" color="primary" />
+                        </Link>
+                        {IsLoggedIn ? <div onClick={openMenuModal} className={styles.LoggedInAccountSec} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                            <Avatar sx={{ backgroundColor: 'rgb(0,128,255)' }} alt="Remy Sharp" src="" />
+                            {/* <AccountBoxIcon fontSize="large" color="primary" /> */}
                             <p>My Account</p>
-                            {isDropdownVisible && <DropdownMenu openSignInModal={openSignInModal} />}
+                            {/* {isDropdownVisible && <DropdownMenu openSignInModal={openSignInModal} />} dropdown bacelu poxaren tox link lini depi menu */}
                         </div>
-                        <div className={styles.soldSec}>
+                            :
+                            <div className={styles.NotLoggedInAccountSec}>
+                                <div className={styles.SignInBtn}>
+                                    <Button variant="text" onClick={openSignInModal}>Sign In</Button>
+                                </div>
+                                <Link href='/sign-up'>
+                                    <Button className={styles.SignUpBtn} variant="outlined">Sign Up</Button>
+                                </Link>
+                            </div>}
+                        <Link href={IsLoggedIn === true ? '/sell' : '/'} className={styles.soldSec}>
                             <Button variant="contained">Sell</Button>
-                        </div>
+                        </Link>
                     </div>
                 </header> : excludedPath(pathname) ?
                     <header className={styles.onlyIconHeader}>
