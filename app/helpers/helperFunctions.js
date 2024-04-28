@@ -3,5 +3,5 @@ export function excludedPath(pathname) {
 }
 
 export function isDefinedPath(pathname) {
-    return ['/', '/messenges', '/dealers', '/advertisement', 'rules', '/help', 'contact', 'sell', 'about'].includes(pathname)
+    return ['/', '/messenges', '/dealers', '/advertisement', '/rules', '/help', '/contact', '/sell', '/about'].includes(pathname)
 }
