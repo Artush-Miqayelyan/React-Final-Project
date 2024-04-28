@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import { Providers } from "./redux/provider";
 import Favicon from "../public/favicon.ico"
 import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 import './global.css'
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           <div className="body" id="body">    
             <Header/>
             {children}
+            <Footer />
           </div>
         </Providers>
       </body>

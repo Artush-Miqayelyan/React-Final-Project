@@ -11,21 +11,11 @@
 }
 
 .imgContainer{
-    max-width: 95%;
-    max-height: 70%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-top: 6px;
-    margin-bottom: 10px;
+    width: 95%;
+    height: 70%;
+    position: relative;
     margin-left: 5px;
-    overflow: hidden;
-}
-
-.img{
-    width: 100%; /* Максимальная ширина изображения равна ширине контейнера */
-    height: 100%; /* Максимальная высота изображения равна высоте контейнера */
-    object-fit: cover;
+    margin-top: 5px;
 }
 
 .name {

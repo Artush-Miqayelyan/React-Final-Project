@@ -1,0 +1,14 @@
+.menu{
+    width: 60%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+}
+.carLogo{
+    width: 9%;
+    height: 100%;
+    position: relative;
+}
+.carLogo:hover{
+    opacity: 0.5;
+}
