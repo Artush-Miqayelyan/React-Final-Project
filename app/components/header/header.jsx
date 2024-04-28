@@ -17,6 +17,10 @@ import MessengesSide from "../modalMessengesSide/messengesSide";
 import SignIn from "@/app/login/page";
 import { usePathname } from "next/navigation";
 
+import { excludedPath, isDefinedPath } from "@/app/helpers/helperFunctions";
+
+
+
 function Header() {
 
     const [modalPosition, setModalPosition] = useState("")
@@ -39,24 +43,13 @@ function Header() {
     }, [modalPosition])
 
     return (
-        <>{modalPosition &&
-            <Modal position={modalPosition} closeModal={closeModal}>
-                {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : <SignIn />}
-            </Modal>}
-            {pathname === null || pathname === "/sign-up" || pathname === "/login" ?
-                <header className={styles.onlyIconHeader}>
-                    <div className={styles.logoSec}>
-                        <Link href="/">
-                            <Image
-                                priority
-                                src={Logo}
-                                fill
-                                alt="Logo"
-                                objectFit="cover"
-                            />
-                        </Link>
-                    </div>
-                </header> :
+        <>
+            {modalPosition &&
+                <Modal position={modalPosition} closeModal={closeModal}>
+                    {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : <SignIn />}
+                </Modal>}
+
+            {isDefinedPath(pathname) ?
                 <header className={styles.header}>
                     <div className={styles.menuSec} onClick={openMenuModal}>
                         <MenuIcon fontSize="large" />
@@ -87,15 +80,28 @@ function Header() {
                         <div className={styles.accountSec} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <AccountBoxIcon fontSize="large" color="primary" />
                             <p>My Account</p>
-                            {isDropdownVisible && <DropdownMenu openSignInModal={openSignInModal} />}
+                            d       {isDropdownVisible && <DropdownMenu openSignInModal={openSignInModal} />}
                         </div>
                         <div className={styles.soldSec}>
                             <Button variant="contained">Sell</Button>
                         </div>
                     </div>
-                </header>}
+                </header> : excludedPath(pathname) ?
+                    <header className={styles.onlyIconHeader}>
+                        <div className={styles.logoSec}>
+                            <Link href="/">
+                                <Image
+                                    priority
+                                    src={Logo}
+                                    fill
+                                    alt="Logo"
+                                    objectFit="cover"
+                                />
+                            </Link>
+                        </div>
+                    </header> : null
+            }
         </>
-
     )
 }
 

@@ -2,6 +2,9 @@ import styles from "./footer.module.css"
 import Image from "next/image"
 import Logo from "../../../public/logo.png"
 import Link from "next/link"
+
+import { isDefinedPath } from "@/app/helpers/helperFunctions"
+
 function Footer() {
   return (
 
@@ -19,21 +22,12 @@ function Footer() {
         </div>
       </div>
       <div className={styles.footerBottom}>
-        <div className={styles.info}>
-          <Link className={styles.link} href="/about" > <div className={styles.text}> About project</div>  </Link>
-        </div>
-        <div className={styles.info}>
-          <Link className={styles.link} href="/rules" > Rules of use </Link>
-        </div>
-        <div className={styles.info}>
-          <Link className={styles.link} href="/advertisement" > Advertisement </Link>
-        </div>
-
-        <div className={styles.info}>
-          <Link className={styles.link} href="/contact" > Contact </Link>
-        </div>
+        <Link href="/about" > About project </Link>
+        <Link href="/rules" > Rules of use </Link>
+        <Link href="/advertisement" > Advertisement </Link>
+        <Link href="/contact" > Contact </Link>
+        <Link href="/help" > Help </Link>
       </div>
-
     </div>
   )
 }

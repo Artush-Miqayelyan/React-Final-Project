@@ -15,7 +15,6 @@ import Main from "./components/main/main"
 
 import FilterBar from './components/FilterBar/filterBar'
 import "./global.css"
-import { Filter } from "@mui/icons-material"
 
 import {
   selectFilteredCars
@@ -31,10 +30,6 @@ export default function Home() {
 
   const users = useSelector(selectUsers)
 
-  // useEffect(() => {
-  //   console.log("FILTERED :::: ", filteredCarsData)
-  // }, [filteredCarsData])
-
   useEffect(() => {
     dispatch(getCars())
   }, [])
@@ -42,10 +37,6 @@ export default function Home() {
   useEffect(() => {
     dispatch(getUsers())
   }, [])
-
-  // useEffect(() => {
-  //   console.log("USERS ::: " , users)
-  // } , [users])
 
   return <div className="main" >
     <Menu/>

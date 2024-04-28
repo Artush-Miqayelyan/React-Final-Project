@@ -1,0 +1,17 @@
+.help{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.HelpComponent{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.phoneNumbers{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

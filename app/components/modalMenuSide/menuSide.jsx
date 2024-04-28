@@ -41,7 +41,7 @@ function MenuSide({ closeModal }) {
                         <p>Advertisement</p>
                     </div>
                 </Link>
-                <Link href="/terms">
+                <Link href="/rules">
                     <div className={styles.item}  onClick={closeModal}>
                         <GavelIcon fontSize="large" color="primary" />
                         <p>Terms of Use</p>

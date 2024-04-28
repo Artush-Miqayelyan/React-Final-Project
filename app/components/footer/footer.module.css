@@ -5,6 +5,14 @@
     justify-content: center;
     align-items: center;
     position: sticky;
+    justify-content: space-between;
+}
+
+.footerTop {
+    width: 10%;
+    height: 100%;
+    position: relative;
+    margin-right: 10px;
 }
 
 .footerBottom {
@@ -16,11 +24,14 @@
     align-items: center;
 }
 
-.footerTop {
-    width: 10%;
-    height: 100%;
-    position: relative;
-    margin-right: 10px;
+.footerBottom a{
+    text-decoration: none;
+    color: black;
+}
+
+.footerBottom a:hover{
+    font-size: 18px;
+    transition: all 400ms ease;
 }
 
 .logo {
@@ -32,18 +43,4 @@
 .logo:hover {
     width: 130%;
     transition: all 400ms ease;
-}
-
-.link {
-
-    text-decoration-line: none;
-    color: black;
-
-}
-
-.link:hover {
-
-    font-size: 18px;
-    transition: all 400ms ease;
-    ;
 }
