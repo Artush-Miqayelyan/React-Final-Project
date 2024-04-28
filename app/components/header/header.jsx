@@ -80,7 +80,7 @@ function Header() {
                         <div className={styles.accountSec} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                             <AccountBoxIcon fontSize="large" color="primary" />
                             <p>My Account</p>
-                            d       {isDropdownVisible && <DropdownMenu openSignInModal={openSignInModal} />}
+                            {isDropdownVisible && <DropdownMenu openSignInModal={openSignInModal} />}
                         </div>
                         <div className={styles.soldSec}>
                             <Button variant="contained">Sell</Button>
