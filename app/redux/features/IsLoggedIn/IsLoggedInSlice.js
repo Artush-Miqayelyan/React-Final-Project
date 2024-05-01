@@ -1,4 +1,3 @@
-import { Login } from '@mui/icons-material'
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = true

@@ -16,11 +16,6 @@ function ProfileBarInMenu({imgSrc , username , userEmail}) {  //enter props from
     const dispatch = useDispatch()
     const IsLoggedIn = useSelector(selectIsLoggedIn)
 
-    useEffect(() => {
-        console.log("TOGGLE IS LOGGED IN ::: " , IsLoggedIn)
-    } , [IsLoggedIn])
-
-
     return (
         <div className={styles.ProfileBarInMenu}>
             <div className={styles.top}>

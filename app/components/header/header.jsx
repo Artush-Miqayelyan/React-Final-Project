@@ -86,7 +86,7 @@ function Header() {
                             <p>Messages</p>
                         </Link>
                         {IsLoggedIn ? <div onClick={openMenuModal} className={styles.LoggedInAccountSec} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                            <Avatar sx={{ backgroundColor: 'rgb(0,128,255)' }} alt="Remy Sharp" src="" />
+                            <Avatar sx={{ backgroundColor: '#1976D2' }} alt="Remy Sharp" src="" />
                             {/* <AccountBoxIcon fontSize="large" color="primary" /> */}
                             <p>My Account</p>
                             {/* {isDropdownVisible && <DropdownMenu openSignInModal={openSignInModal} />} dropdown bacelu poxaren tox link lini depi menu */}

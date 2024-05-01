@@ -1,14 +1,14 @@
-.login{
+.SignUpContainer{
     width: 380px;
-    height: 500px;
+    margin-top: 70px;
+    height: 650px;
     background-color: #FBFBFB;
-    margin-top: 80px;
     padding: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.signin{
+.signUp{
     font-size: 23px;
     font-weight: 500;
 }
@@ -17,15 +17,10 @@
     justify-content: space-between;
     align-items: center;
 }
-.forgot{
-    color: #1976D2;
-    cursor: pointer;
-    text-decoration: none;
-}
-.signinBtn{
+.signUpBtn{
     width: 320px;
 }
-.signinwith{
+.signUpWith{
     display: flex;
     align-items: center;
     justify-content: center;
