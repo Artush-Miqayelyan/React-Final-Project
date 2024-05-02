@@ -23,7 +23,7 @@ import {
     selectIsLoggedIn
 } from '../../redux/features/IsLoggedIn/IsLoggedInSlice'
 
-import { excludedPath, isDefinedPath } from "@/app/helpers/helperFunctions";
+import { excludedPath, isDefinedPathForHeader } from "@/app/helpers/helperFunctions";
 
 
 
@@ -57,7 +57,7 @@ function Header() {
                     {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : <SignIn />}
                 </Modal>}
 
-            {isDefinedPath(pathname) ?
+            {isDefinedPathForHeader(pathname) ?
                 <header className={styles.header}>
                     <div className={styles.menuSec} onClick={openMenuModal}>
                         <MenuIcon fontSize="large" />
