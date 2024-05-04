@@ -44,7 +44,7 @@ function AccountComponent(avatar, username, email, phoneNumber) {
             </ToggleButtonGroup>
             <div className={styles.MainContent}>
                 {alignment === 'My Offers'
-                    ? <h1>My Offers Comnponent</h1>
+                    ? <h1>My Offers Component</h1>
                     : alignment === 'Saved'
                         ? <h1>Saved Component</h1>
                         : <SettingsComponent />

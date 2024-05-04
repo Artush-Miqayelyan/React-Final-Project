@@ -7,12 +7,10 @@ export const IsLoggedInSlice = createSlice({
     initialState,
     reducers:{
         ExitFromAccount: (state) => {
-            state = false
-            return state
+            return false
         },
         SignInToAccount: (state) => {
-            state = true
-            return state
+            return true
         }
     },
 })

@@ -6,6 +6,7 @@
     padding: 30px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 20px;
 }
 .signUp{
@@ -32,3 +33,15 @@
     justify-content: center;
     align-items: center;
 }
+
+.ContainerAfterSuccessfullSignUp{
+    background-image: url('https://media.istockphoto.com/id/1169630303/photo/blue-textured-background.webp?b=1&s=170667a&w=0&k=20&c=tI2xFhXqXFqMM0IvxSYY3F7LIwv450h2ch3yD-lZ9HU=');
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    gap: 30px;
+}   

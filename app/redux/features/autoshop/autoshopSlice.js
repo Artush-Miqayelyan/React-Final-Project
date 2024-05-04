@@ -12,7 +12,8 @@ export const autoshopSlice = createSlice({
     extraReducers: builder => {
         builder
         .addCase(getCars.fulfilled , (state , action) => {
-            return action.payload
+            state = action.payload
+            return state;
         })
     }
 })

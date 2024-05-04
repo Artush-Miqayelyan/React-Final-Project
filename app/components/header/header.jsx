@@ -22,8 +22,12 @@ import { useSelector } from "react-redux";
 import {
     selectIsLoggedIn
 } from '../../redux/features/IsLoggedIn/IsLoggedInSlice'
+import {
+    selectCurrentUser
+} from '../../redux/features/currentUser/currentUserSlice'
 
 import { excludedPath, isDefinedPathForHeader } from "@/app/helpers/helperFunctions";
+import { current } from "@reduxjs/toolkit";
 
 
 
@@ -40,6 +44,7 @@ function Header() {
     const handleMouseLeave = () => setDropdownVisible(false);
 
     const IsLoggedIn = useSelector(selectIsLoggedIn)
+    const CurrentUser = useSelector(selectCurrentUser)
 
     const pathname = usePathname()
 
@@ -86,7 +91,7 @@ function Header() {
                             <p>Messages</p>
                         </Link>
                         {IsLoggedIn ? <div onClick={openMenuModal} className={styles.LoggedInAccountSec} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                            <Avatar sx={{ backgroundColor: '#1976D2' }} alt="Remy Sharp" src="" />
+                            <Avatar sx={{ backgroundColor: '#1976D2' }} alt="Remy Sharp" src={CurrentUser.AvatarUrl} />
                             {/* <AccountBoxIcon fontSize="large" color="primary" /> */}
                             <p>My Account</p>
                             {/* {isDropdownVisible && <DropdownMenu openSignInModal={openSignInModal} />} dropdown bacelu poxaren tox link lini depi menu */}

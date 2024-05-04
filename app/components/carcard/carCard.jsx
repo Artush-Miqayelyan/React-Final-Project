@@ -5,7 +5,6 @@ function CarCard({ img, price, year, mark, model }) {
 
   const imgUrl = typeof img === 'string' ? img : img.imgUrl;
 
-
   return (
     <div className={styles.carCard}>
       <div className={styles.imgContainer}>
