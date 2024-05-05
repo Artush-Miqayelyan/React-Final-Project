@@ -301,8 +301,10 @@ function SignUp() {
                             password: passwordInputValue,
                             AvatarUrl: ''
                         }
-
+                    
                         handleSuccessfullSignUp(newUser) // posting data in json-server 
+                    }else{
+                        console.log('Fuckkk :::: ')
                     }
                 }}>
                     Sign Up

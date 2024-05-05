@@ -25,6 +25,8 @@ export default function Home() {
   const currentUser = useSelector(selectCurrentUser)
   const state = useSelector(state => state)
 
+  console.log(state)
+
   useEffect(() => {
     if (currentUser) {
       dispatch(SignInToAccount())

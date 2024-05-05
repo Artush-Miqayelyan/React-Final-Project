@@ -8,10 +8,18 @@ import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 import SettingsComponent from '../accountSettingsComponent/ProfileSettingsComponent'
+import MyOffersComponent from '../myOffersComponent/myOffersComponent';
 
-function AccountComponent(avatar, username, email, phoneNumber) {
+import { useSelector, useDispatch } from 'react-redux';
+
+import {
+    selectCurrentUser
+} from '../../redux/features/currentUser/currentUserSlice'
+
+function AccountComponent() {
 
     const [alignment, setAlignment] = useState('My Offers');
+    const currentUser = useSelector(selectCurrentUser)
 
     const handleAlignmentChange = (event, newAlignment) => {
         setAlignment(newAlignment);
@@ -22,13 +30,13 @@ function AccountComponent(avatar, username, email, phoneNumber) {
             <div className={styles.InfoAboutProfileBar}>
                 <Avatar
                     alt="Remy Sharp"
-                    src=""
+                    src={currentUser.AvatarUrl}
                     sx={{ width: 120, height: 120 }}
                 />
                 <div className={styles.info}>
-                    <div className={styles.Username}>Artush Miqayelyan</div>
-                    <div className={styles.Email}>miqaelyan.artush@icloud.com</div>
-                    <div className={styles.PhoneNumber}>+374-94-68-33-88</div>
+                    <div className={styles.Username}>{currentUser.username}</div>
+                    <div className={styles.Email}>{currentUser.Email}</div>
+                    <div className={styles.PhoneNumber}>{currentUser.PhoneNumber}</div>
                 </div>
             </div>
             <ToggleButtonGroup
@@ -44,7 +52,7 @@ function AccountComponent(avatar, username, email, phoneNumber) {
             </ToggleButtonGroup>
             <div className={styles.MainContent}>
                 {alignment === 'My Offers'
-                    ? <h1>My Offers Component</h1>
+                    ? <MyOffersComponent />
                     : alignment === 'Saved'
                         ? <h1>Saved Component</h1>
                         : <SettingsComponent />
