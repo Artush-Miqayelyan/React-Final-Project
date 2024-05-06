@@ -1,54 +1,48 @@
-
 'use client'
 
-import { useEffect } from "react"
+import React, { useEffect } from "react"
+
 import { useSelector, useDispatch } from 'react-redux'
 import {
-  selectCars
-} from './redux/features/autoshop/autoshopSlice'
+  selectCurrentUser
+} from './redux/features/currentUser/currentUserSlice'
 import {
-  selectUsers
-} from './redux/features/users/usersSlice'
+  SignInToAccount
+} from './redux/features/IsLoggedIn/IsLoggedInSlice'
+
 import { getCars } from "./redux/API/autoshopAPI"
-import { getUsers } from "./redux/API/usersAPI"
-import Main from "./components/main/main"
-
-import FilterBar from './components/FilterBar/filterBar'
-import "./global.css"
-import { Filter } from "@mui/icons-material"
-
-import {
-  selectFilteredCars
-} from './redux/features/mainFilterSlice/mainFilterSlice'
+import { getUsers } from "@/app/redux/API/usersAPI";
 
 import Menu from "./components/menu/menu"
+import Main from "./components/main/main"
+import FilterBar from './components/FilterBar/filterBar'
+
+import "./global.css"
 
 export default function Home() {
 
   const dispatch = useDispatch()
-  const cars = useSelector(selectCars)
-  const filteredCarsData = useSelector(selectFilteredCars)
+  const currentUser = useSelector(selectCurrentUser)
+  const state = useSelector(state => state)
 
-  const users = useSelector(selectUsers)
-
-  // useEffect(() => {
-  //   console.log("FILTERED :::: ", filteredCarsData)
-  // }, [filteredCarsData])
+  console.log(state)
 
   useEffect(() => {
-    dispatch(getCars())
-  }, [])
+    if (currentUser) {
+      dispatch(SignInToAccount())
+    }
+  }, [currentUser])
 
   useEffect(() => {
     dispatch(getUsers())
   }, [])
 
-  // useEffect(() => {
-  //   console.log("USERS ::: " , users)
-  // } , [users])
+  useEffect(() => {
+    dispatch(getCars())
+  }, [])
 
   return <div className="main" >
-    <Menu/>
+    <Menu />
     <FilterBar />
     <Main />
   </div>

@@ -20,6 +20,7 @@
 .forgot{
     color: #1976D2;
     cursor: pointer;
+    text-decoration: none;
 }
 .signinBtn{
     width: 320px;

@@ -14,7 +14,7 @@ function SignIn() {
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = event => event.preventDefault();
-
+    
     return (
         <div className={styles.login}>
             <div className={styles.signin}>
@@ -84,7 +84,7 @@ function SignIn() {
                 </Link>
             </div>
             <div className={styles.signinwith}>
-                <span>Don't have an account? <span className={styles.forgot}>Sign Up</span></span>
+                <span>Don't have an account? <Link href='/sign-up' className={styles.forgot}>Sign Up</Link></span>
             </div>
         </div>
     )

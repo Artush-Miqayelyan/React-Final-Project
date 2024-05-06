@@ -1,41 +1,44 @@
+'use client'
+
 import styles from "./footer.module.css"
+import React , {Fragment} from "react"
 import Image from "next/image"
-import Logo from "../../../public/logo.png"
+import FooterLogo from "../../../public/footerLogo.png"
 import Link from "next/link"
+
+import { isDefinedPathForfooter } from "@/app/helpers/helperFunctions"
+import { usePathname } from "next/navigation"
+
+
 function Footer() {
-  return (
 
-    <div className={styles.footerContainer}>
-      <div className={styles.footerTop}>
-        <div className={styles.logo}>
-          <Link href='/'><Image
-            priority
-            objectFit="cover"
-            fill
-            src={Logo}
-            color="black"
-            alt="Logo"
-          /></Link>
-        </div>
-      </div>
-      <div className={styles.footerBottom}>
-        <div className={styles.info}>
-          <Link className={styles.link} href="/about" > <div className={styles.text}> About project</div>  </Link>
-        </div>
-        <div className={styles.info}>
-          <Link className={styles.link} href="/rules" > Rules of use </Link>
-        </div>
-        <div className={styles.info}>
-          <Link className={styles.link} href="/advertisement" > Advertisement </Link>
-        </div>
+  const pathname = usePathname()
 
-        <div className={styles.info}>
-          <Link className={styles.link} href="/contact" > Contact </Link>
+  return <>
+    {isDefinedPathForfooter(pathname) ?
+      <div className={styles.footerContainer} >
+        <div className={styles.footerTop}>
+          <div className={styles.logo}>
+            <Link href='/'><Image
+              priority
+              objectFit="cover"
+              fill
+              src={FooterLogo}
+              color="black"
+              alt="Logo"
+            /></Link>
+          </div>
         </div>
-      </div>
-
-    </div>
-  )
+        <div className={styles.footerBottom}>
+          <Link href="/about" > About project </Link>
+          <Link href="/rules" > Rules of use </Link>
+          <Link href="/advertisement" > Advertisement </Link>
+          <Link href="/contact" > Contact </Link>
+          <Link href="/help" > Help </Link>
+        </div>
+      </div > : null
+    }
+  </>
 }
 
 export default Footer;
