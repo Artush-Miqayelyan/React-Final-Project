@@ -6,8 +6,7 @@ import Button from '@mui/material/Button';
 import { useDispatch , useSelector } from 'react-redux';
 
 import {
-    ExitFromAccount,
-    selectIsLoggedIn
+    ExitFromAccount
 } from '../../redux/features/IsLoggedIn/IsLoggedInSlice'
 import {
     setCurrentUser

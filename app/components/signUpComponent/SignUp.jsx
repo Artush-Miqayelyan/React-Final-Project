@@ -4,6 +4,7 @@ import React, { useState, useEffect, Fragment } from "react";
 
 //Material Components Imports 
 import { Button, Checkbox, FormControl, FormControlLabel, Input, InputAdornment, InputLabel, TextField } from "@mui/material";
+import Alert from '@mui/material/Alert';
 
 //Material Icons Imports 
 import LockIcon from '@mui/icons-material/Lock';
@@ -137,12 +138,14 @@ function SignUp() {
 
     return (
         <div className={styles.SignUpContainer}>
-            {isSignUpSuccesfull ? <div className={styles.ContainerAfterSuccessfullSignUp}>
-                <h4>you have successfully registered 🤗</h4>
-                <Link href='/'>
-                    <Button variant="contained" sx={{width: 270}}>Go To Home Page</Button>
-                </Link>
-            </div> : <>
+            {isSignUpSuccesfull ? <Alert severity="success">
+                Congratulations 🎉🤗 , You have successfully registered
+                <div>
+                    <Link href='/'>
+                        <Button variant="text">Go to home page</Button>
+                    </Link>
+                </div>
+            </Alert> : <>
                 <div className={styles.signUp}>
                     Sign Up
                 </div>
@@ -301,9 +304,9 @@ function SignUp() {
                             password: passwordInputValue,
                             AvatarUrl: ''
                         }
-                    
+
                         handleSuccessfullSignUp(newUser) // posting data in json-server 
-                    }else{
+                    } else {
                         console.log('Fuckkk :::: ')
                     }
                 }}>
