@@ -150,9 +150,9 @@ function PersonalInformtaionComponent() {
                 </FormControl>
                 <Button variant="contained" onClick={() => {
                     if (
-                        validateUsername(usernameInputValue) &&
-                        validateEmail(emailInputValue) &&
-                        validatePhoneNumber(phoneNumberInputValue)
+                        validateUsername(usernameInputValue) || usernameInputValue === '' &&
+                        validateEmail(emailInputValue) || emailInputValue === '' &&
+                        validatePhoneNumber(phoneNumberInputValue) || phoneNumberInputValue === ''
                     ) {
 
                         const newData = {

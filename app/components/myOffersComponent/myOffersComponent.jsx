@@ -16,19 +16,7 @@ function MyOffersComponent() {
         <div className={styles.MyOffersComponent}>
             {currentUser?.offers?.map((current) => {
                 return <ExtendedCarCard
-                    ImgUrl={current.img[0].imgUrl}
-                    year={current.year}
-                    brand={current.brand}
-                    model={current.model}
-                    mileage={current.mileage}
-                    body_type={current.body_type}
-                    engine={current.engine}
-                    transmission={current.transmission}
-                    steering={current.steering}
-                    color={current.color}
-                    country={current.country}
-                    customs_cleared={current.customs_cleared}
-                    price={current.price}
+                    car={current}
                 />
             })}
         </div>

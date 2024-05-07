@@ -46,15 +46,6 @@
 
 .SuccessfullSignInAlert {
     position: absolute;
-    top: 100px;
-    right: 40px;
-    z-index: 2000;
-    width: 470px;
-    transform: scale(1.1);
-}
-
-.SuccessfullSignInAlertInSignInPage {
-    position: absolute;
     top: 50%;
     transform: scale(1.2);
 }
