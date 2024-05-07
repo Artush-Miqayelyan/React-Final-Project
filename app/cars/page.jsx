@@ -1,8 +1,8 @@
 import styles from  "./singleCarPage.module.css";
 import Image from "next/image";
 
-function Cars ({props}) {
-   console.log(props)
+function Cars () {
+   
     return (
         <div>
             Hello
