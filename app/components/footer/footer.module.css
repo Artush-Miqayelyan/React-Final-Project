@@ -4,12 +4,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-<<<<<<< HEAD
     margin-top: 20px;
-=======
     border-top: 1px solid grey;
     position: sticky;
->>>>>>> 19602deaec1ff3ffafa404ca3398a89768a96534
 }
 
 .footerTop {
