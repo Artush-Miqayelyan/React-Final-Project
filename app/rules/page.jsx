@@ -49,11 +49,6 @@ If you reply, you will also receive your e-mail address. you will receive an ema
                  <p >The Carshop website has the following official pages on social media:</p> <br></br>
                  <p >Facebook` <a className =  {styles.link} href = "https://www.facebook.com" target ="_blank">https://www.facebook.com</a><br></br>
                  Instagram` <a className =  {styles.link}href = "https://www.instagram.com" target ="_blank"> https://www.instagram.com</a><br></br>
-                 Ok.ru ` <a className =  {styles.
-                
-                
-                
-                } href = "https://ok.ru" target ="_blank">https://ok.ru</a><br></br>
                  Twitter` <a className =  {styles.link} href = "https://twitter.com" target ="_blank"> https://twitter.com</a><br></br>
                  Youtube` <a className =  {styles.link} href = "https://www.youtube.com" target ="_blank">https://www.youtube.com</a></p> <br></br>
                  <p >On social pages, we share news related to our site, global auto news, and also keep in touch with our users.</p> <br></br>

@@ -3,6 +3,7 @@ import styles from "./main.module.css";
 import { selectCars } from "../../redux/features/autoshop/autoshopSlice";
 import { useSelector, useDispatch } from "react-redux"
 import CarCard from "../carcard/carCard";
+import Link from "next/link";
 import { minimumVersion } from "./utils";
 import { useState } from "react";
 import Button from '@mui/material/Button';
@@ -24,7 +25,8 @@ function Main() {
         <div className={styles.carsContainer}>
           {ontop ? <>
             {minOntop.length > 0 && minOntop.map((car) => {
-              return <CarCard
+              return <Link   href = {`/cars/${car.id}`} >
+                  <CarCard
                 key={car.id}
                 img={car.img[0].imgUrl}
                 price={car.price}
@@ -33,6 +35,7 @@ function Main() {
                 model={car.model}
                 priority={car.priority}
               />
+              </Link>
             })}
             <Button variant="contained" onClick={() => setOntop(!ontop)}>Show more</Button>
           </> : <>
