@@ -63,6 +63,8 @@
     align-items: center;
     cursor: pointer;
     justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 .dillerSec:hover{
     background-color: #E8EBF0;

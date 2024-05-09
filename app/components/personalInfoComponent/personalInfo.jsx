@@ -24,6 +24,8 @@ function PersonalInformtaionComponent() {
     const dispatch = useDispatch()
     const currentUser = useSelector(selectCurrentUser)
 
+    const [image, setImage] = useState(null);
+
     const [emailInputValue, setEmailInputValue] = useState('')
     const [usernameInputValue, setUsernameInputValue] = useState('')
     const [phoneNumberInputValue, setPhoneNumberInputValue] = useState('')
@@ -78,7 +80,10 @@ function PersonalInformtaionComponent() {
     return (
         <div className={styles.PersonalInformtaionComponent}>
             <div className={styles.chooseAvatarContainer}>
-                <AvatarUpload />
+                <AvatarUpload 
+                    image={image}
+                    setImage={setImage}
+                />
                 <p>Upload only .jpg images, <br />
                     the size of which should <br />
                     not exceed 250kb.
@@ -155,8 +160,11 @@ function PersonalInformtaionComponent() {
                         validatePhoneNumber(phoneNumberInputValue) || phoneNumberInputValue === ''
                     ) {
 
+                        console.log("OKKKKKKKK")
+
                         const newData = {
                             ...currentUser,
+                            AvatarUrl: (image ? image : currentUser.AvatarUrl),
                             username: (usernameInputValue ? usernameInputValue : currentUser.username),
                             Email: (emailInputValue ? emailInputValue : currentUser.Email),
                             PhoneNumber: (phoneNumberInputValue ? phoneNumberInputValue : currentUser.PhoneNumber)
