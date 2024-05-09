@@ -28,6 +28,7 @@ import {
 
 import { excludedPath, isDefinedPathForHeader } from "@/app/helpers/helperFunctions";
 import { current } from "@reduxjs/toolkit";
+import path from "path";
 
 
 
@@ -59,10 +60,10 @@ function Header() {
         <>
             {modalPosition &&
                 <Modal position={modalPosition} closeModal={closeModal}>
-                    {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : modalPosition === "middle"?  <SignIn />: null}
+                    {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : modalPosition === "middle" ? <SignIn /> : null}
                 </Modal>}
 
-            {isDefinedPathForHeader(pathname) ?
+            {isDefinedPathForHeader(pathname) || pathname.includes('/cars/') ?
                 <header className={styles.header}>
                     <div className={styles.menuSec} onClick={openMenuModal}>
                         <MenuIcon fontSize="large" />

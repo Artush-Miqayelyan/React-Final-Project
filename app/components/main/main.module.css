@@ -46,3 +46,8 @@
     font-weight: bold;
     font-size: 150%;
 }
+
+.SingleCarLink{
+    text-decoration: none;
+    color: black;
+}

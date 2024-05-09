@@ -25,16 +25,16 @@ function Main() {
         <div className={styles.carsContainer}>
           {ontop ? <>
             {minOntop.length > 0 && minOntop.map((car) => {
-              return <Link   href = {`/cars/${car.id}`} >
-                  <CarCard
-                key={car.id}
-                img={car.img[0].imgUrl}
-                price={car.price}
-                year={car.year}
-                mark={car.brand}
-                model={car.model}
-                priority={car.priority}
-              />
+              return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
+                <CarCard
+                  key={car.id}
+                  img={car.img[0].imgUrl}
+                  price={car.price}
+                  year={car.year}
+                  mark={car.brand}
+                  model={car.model}
+                  priority={car.priority}
+                />
               </Link>
             })}
             <Button variant="contained" onClick={() => setOntop(!ontop)}>Show more</Button>
@@ -42,7 +42,7 @@ function Main() {
             {cars.length > 0 && cars.map((car) => {
               if (car.priority === "ontop") {
                 return <CarCard
-                key={car.id}
+                  key={car.id}
                   img={car.img[0]}
                   price={car.price}
                   year={car.year}
@@ -61,7 +61,7 @@ function Main() {
           {urgentSale ? <>
             {minUrgentSale.length > 0 && minUrgentSale.map((car) => {
               return <CarCard
-              key={car.id}
+                key={car.id}
                 img={car.img[0].imgUrl}
                 price={car.price}
                 year={car.year}
@@ -74,7 +74,7 @@ function Main() {
             {cars.length > 0 && cars.map((car) => {
               if (car.priority === "urgent sale") {
                 return <CarCard
-                key={car.id}
+                  key={car.id}
                   img={car.img[0].imgUrl}
                   price={car.price}
                   year={car.year}
@@ -94,7 +94,7 @@ function Main() {
           {officialDiller ? <>
             {minOfficialDiller.length > 0 && minOfficialDiller.map((car) => {
               return <CarCard
-              key={car.id}
+                key={car.id}
                 img={car.img[0]}
                 price={car.price}
                 year={car.year}
@@ -107,7 +107,7 @@ function Main() {
             {cars.length > 0 && cars.map((car) => {
               if (car.isOfficialDiller === true) {
                 return <CarCard
-                key={car.id}
+                  key={car.id}
                   img={car.img[0]}
                   price={car.price}
                   year={car.year}
