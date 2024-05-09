@@ -4,6 +4,7 @@ import React, { useState, useEffect, Fragment } from "react";
 
 //Material Components Imports 
 import { Button, Checkbox, FormControl, FormControlLabel, Input, InputAdornment, InputLabel, TextField } from "@mui/material";
+import Alert from '@mui/material/Alert';
 
 //Material Icons Imports 
 import LockIcon from '@mui/icons-material/Lock';
@@ -24,9 +25,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 //Redux Selectors And Actions 
 import {
-    selectUsers
-} from '../../redux/features/users/usersSlice'
-import {
     setCurrentUser
 } from '../../redux/features/currentUser/currentUserSlice'
 
@@ -35,7 +33,6 @@ import styles from './SignUp.module.css'
 function SignUp() {
 
     const dispatch = useDispatch()
-    const users = useSelector(selectUsers)
 
     const [emailInputValue, setEmailInputValue] = useState('')
     const [usernameInputValue, setUsernameInputValue] = useState('')
@@ -45,7 +42,7 @@ function SignUp() {
 
     const [isSignUpSuccesfull, setIsSignUpSuccesfull] = useState(false)
 
-    const usernameRegex = /^[a-zA-Z0-9_-]{3,16}$/ //должны содержать только буквы, цифры, дефисы и подчеркивания, и быть длиной от 3 до 16 символов
+    const usernameRegex = /^[a-zA-Z0-9_-\s]{3,16}$/ //должны содержать только буквы, цифры, дефисы и подчеркивания, и быть длиной от 3 до 16 символов
 
     function validateUsername(username) {
         return usernameRegex.test(username);
@@ -137,12 +134,14 @@ function SignUp() {
 
     return (
         <div className={styles.SignUpContainer}>
-            {isSignUpSuccesfull ? <div className={styles.ContainerAfterSuccessfullSignUp}>
-                <h4>you have successfully registered 🤗</h4>
-                <Link href='/'>
-                    <Button variant="contained" sx={{width: 270}}>Go To Home Page</Button>
-                </Link>
-            </div> : <>
+            {isSignUpSuccesfull ? <Alert severity="success">
+                Congratulations 🎉🤗 , You have successfully registered
+                <div>
+                    <Link href='/'>
+                        <Button variant="text">Go to home page</Button>
+                    </Link>
+                </div>
+            </Alert> : <>
                 <div className={styles.signUp}>
                     Sign Up
                 </div>
@@ -290,20 +289,20 @@ function SignUp() {
                         isPasswordCorrespondsRepeatPassword(repeatPasswordInputValue, passwordInputValue)
                     ) {
                         const newUser = {
+                            //id -n json server y generate a anum 
                             username: usernameInputValue,
                             offers: [],
                             Chats: [],
                             SavedOffers: [],
                             Email: emailInputValue,
-                            UserID: users[users.length - 1].UserID + 1,
                             UserType: null,
                             PhoneNumber: phoneNumberInputValue,
                             password: passwordInputValue,
                             AvatarUrl: ''
                         }
-                    
+
                         handleSuccessfullSignUp(newUser) // posting data in json-server 
-                    }else{
+                    } else {
                         console.log('Fuckkk :::: ')
                     }
                 }}>

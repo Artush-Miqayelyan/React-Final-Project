@@ -5,9 +5,10 @@ import Button from '@mui/material/Button';
 
 import { useDispatch , useSelector } from 'react-redux';
 
+import Link from 'next/link';
+
 import {
-    ExitFromAccount,
-    selectIsLoggedIn
+    ExitFromAccount
 } from '../../redux/features/IsLoggedIn/IsLoggedInSlice'
 import {
     setCurrentUser
@@ -23,12 +24,12 @@ function ProfileBarInMenu({imgURL , username , userEmail}) {  //enter props from
                 <div className={styles.ProfileImg}>
                     <Avatar alt="Remy Sharp" src={imgURL} />
                 </div>
-                <div className={styles.exitFromProfileBtn}>
+                <Link className={styles.exitFromProfileBtn} href="/">
                     <Button onClick={() => {
                         dispatch(ExitFromAccount())
                         dispatch(setCurrentUser(''))
                     }} variant="contained" sx={{ backgroundColor: 'red' }}>Exit</Button>
-                </div>
+                </Link>
             </div>
             <div className={styles.bottom}>
                 <div className={styles.username}>{username}</div>

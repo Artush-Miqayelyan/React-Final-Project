@@ -6,8 +6,8 @@
     align-items: center;
     position: fixed;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.07) ;
-    background-color: white;
-    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
 }
 .onlyIconHeader{
     width: 80%;
@@ -63,6 +63,8 @@
     align-items: center;
     cursor: pointer;
     justify-content: center;
+    text-decoration: none;
+    color: black;
 }
 .dillerSec:hover{
     background-color: #E8EBF0;

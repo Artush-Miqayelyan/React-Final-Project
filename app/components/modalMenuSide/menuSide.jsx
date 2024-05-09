@@ -28,9 +28,6 @@ function MenuSide({ closeModal }) {
     const IsLoggedIn = useSelector(selectIsLoggedIn)
     const CurrentUser = useSelector(selectCurrentUser)
 
-    console.log("CUrrent User ::::: " , CurrentUser)
-    console.log("IsLoggedIn  ::::: " , IsLoggedIn)
-
     return (
         <div className={styles.menuSide}>
             {IsLoggedIn === false ? <Link href="/login">

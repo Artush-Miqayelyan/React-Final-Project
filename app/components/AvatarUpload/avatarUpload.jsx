@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 
-const AvatarUpload = () => {
-  const [image, setImage] = useState(null);
+import { useSelector } from 'react-redux';
+import {
+  selectCurrentUser
+} from '@/app/redux/features/currentUser/currentUserSlice';
+
+const AvatarUpload = ({image , setImage}) => {
+
+  const currentUser = useSelector(selectCurrentUser)
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -40,7 +46,9 @@ const AvatarUpload = () => {
             aria-label="upload picture"
             component="span"
           >
-            <Avatar sx={{width: 80 , height: 80}}/>
+            <Avatar sx={{width: 80 , height: 80}}
+              src={currentUser.AvatarUrl}
+            />
           </IconButton>
         </label>
       )}

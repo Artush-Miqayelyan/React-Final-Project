@@ -33,11 +33,12 @@ export default function Home() {
     }
   }, [currentUser])
 
-  useEffect(() => {
-    dispatch(getUsers())
-  }, [])
+  // useEffect(() => {
+  //   dispatch(getUsers())
+  // }, [])
 
   useEffect(() => {
+    console.log("Getting Cars")
     dispatch(getCars())
   }, [])
 

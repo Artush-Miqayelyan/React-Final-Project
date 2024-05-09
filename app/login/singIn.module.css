@@ -1,4 +1,4 @@
-.login{
+.login {
     width: 380px;
     height: 500px;
     background-color: #FBFBFB;
@@ -8,32 +8,53 @@
     flex-direction: column;
     gap: 20px;
 }
-.signin{
+
+.signin {
     font-size: 23px;
     font-weight: 500;
 }
-.checkbox{
+
+.checkbox {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.forgot{
+
+.forgot {
     color: #1976D2;
     cursor: pointer;
     text-decoration: none;
 }
-.signinBtn{
+
+.signinBtn {
     width: 320px;
 }
-.signinwith{
+
+.signinwith {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.socnetwork{
+
+.socnetwork {
     width: 320px;
     height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.SuccessfullSignInAlert {
+    position: absolute;
+    top: 50%;
+    transform: scale(1.2);
+}
+
+.IncorrectDataAlert {
+    position: absolute;
+    top: 100px;
+    right: 40px;
+    z-index: 2000;
+    width: 470px;
+    transform: scale(1.1);
 }

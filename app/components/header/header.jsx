@@ -59,7 +59,7 @@ function Header() {
         <>
             {modalPosition &&
                 <Modal position={modalPosition} closeModal={closeModal}>
-                    {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : <SignIn />}
+                    {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : modalPosition === "middle"?  <SignIn />: null}
                 </Modal>}
 
             {isDefinedPathForHeader(pathname) ?
@@ -82,10 +82,10 @@ function Header() {
                         <TextField fullWidth size="small" id="outlined-basic" label="mark , model , year" variant="outlined" />
                     </div>
                     <div className={styles.login_help_diller_Sec}>
-                        <div className={styles.dillerSec}>
+                        <Link href="/dealers" className={styles.dillerSec}>
                             <DirectionsCarFilledIcon fontSize="large" color="primary" />
-                            <p>Dillers</p>
-                        </div>
+                            <p>Dealers</p>
+                        </Link>
                         <Link onClick={IsLoggedIn === false ? openMessengesInModal : null} href={IsLoggedIn === false ? '/' : '/account/messages'} className={styles.helpSec}>
                             <MessageIcon fontSize="large" color="primary" />
                             <p>Messages</p>
