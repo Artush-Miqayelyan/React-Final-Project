@@ -1,0 +1,12 @@
+.additionalDataSection{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+.secMain{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}

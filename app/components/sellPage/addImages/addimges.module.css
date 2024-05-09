@@ -1,0 +1,69 @@
+.imgContainer {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 60%;
+    height: auto;
+    overflow: hidden;
+}
+
+.dragArea {
+    height: 170px;
+    border-radius: 5px;
+    border: 2px dashed #0086fe;
+    color: #0086fe;
+    background: #f4f3f9a7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.selectText{
+    color: #0086fe;
+    font-size: 26px;
+}
+.select {
+    color: #5256ad;
+    margin-left: 5px;
+    cursor: pointer;
+    transition: 0.6s;
+    font-size: 30px;
+}
+.select:hover {
+    opacity: 0.6;
+}
+.container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 10px;
+    background: #f4f3f9a7;
+    border-radius: 5px;
+
+}
+.image {
+   width: 90px;
+   margin-right: 5px;
+   height: 90px;
+   position: relative;
+   margin-bottom: 8px;
+}
+
+.delete {
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+    cursor: pointer;   
+     z-index: 999;
+    color: #0086fe;
+}
+.imgContainer input,
+.imgContainer .dragArea .onDrop,
+.imgContainer .dragArea .dragover .visible{
+    display: none;
+}

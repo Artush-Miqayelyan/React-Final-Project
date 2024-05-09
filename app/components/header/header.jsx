@@ -54,7 +54,7 @@ function Header() {
         <>
             {modalPosition &&
                 <Modal position={modalPosition} closeModal={closeModal}>
-                    {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : <SignIn />}
+                    {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : modalPosition === "middle"?  <SignIn />: null}
                 </Modal>}
 
             {isDefinedPath(pathname) ?
