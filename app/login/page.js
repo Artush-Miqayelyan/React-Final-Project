@@ -78,7 +78,7 @@ function SignIn() {
     return <>
         {isSuccessfullSignInAlertVisible ? null : <>
             <div className={styles.login}>
-                <div div className={styles.signin} >
+                <div className={styles.signin} >
                     <span>Sign In</span>
                 </div>
                 <div className={styles.username}>

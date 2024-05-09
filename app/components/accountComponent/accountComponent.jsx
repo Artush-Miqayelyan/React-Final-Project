@@ -9,6 +9,7 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 import SettingsComponent from '../accountSettingsComponent/ProfileSettingsComponent'
 import MyOffersComponent from '../myOffersComponent/myOffersComponent';
+import SavedOffers from '../SavedOffersComponent/SavedOffers'
 
 import { useSelector, useDispatch } from 'react-redux';
 
@@ -54,7 +55,7 @@ function AccountComponent() {
                 {alignment === 'My Offers'
                     ? <MyOffersComponent />
                     : alignment === 'Saved'
-                        ? <h1>Saved Component</h1>
+                        ? <SavedOffers/>
                         : <SettingsComponent />
                 }
             </div>
