@@ -19,10 +19,14 @@ import { useSelector } from "react-redux";
 import {
     selectIsLoggedIn
 } from '../../redux/features/IsLoggedIn/IsLoggedInSlice'
+import {
+    selectCurrentUser
+} from '../../redux/features/currentUser/currentUserSlice'
 
 function MenuSide({ closeModal }) {
 
     const IsLoggedIn = useSelector(selectIsLoggedIn)
+    const CurrentUser = useSelector(selectCurrentUser)
 
     return (
         <div className={styles.menuSide}>
@@ -32,7 +36,11 @@ function MenuSide({ closeModal }) {
                     <p>Sign In</p>
                 </div>
             </Link> : <>
-                <ProfileBarInMenu />
+                <ProfileBarInMenu 
+                    imgURL={CurrentUser.AvatarUrl}
+                    username={CurrentUser.username}
+                    userEmail={CurrentUser.Email}
+                />
                 <ProfileTools 
                     closeModal={closeModal}
                 />

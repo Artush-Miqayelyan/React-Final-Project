@@ -5,16 +5,16 @@ function CarCard({ img, price, year, mark, model }) {
 
   const imgUrl = typeof img === 'string' ? img : img.imgUrl;
 
-
   return (
     <div className={styles.carCard}>
       <div className={styles.imgContainer}>
-        <Image 
-        priority
-        src={imgUrl}
-        alt="car"
-        fill
-        objectFit="cover"
+        <Image
+          priority
+          src={imgUrl}
+          alt="car"
+          fill
+          objectFit="cover"
+          className={styles.img}
         />
       </div>
       <div className={styles.name}>{`${mark} ${model}`}</div>

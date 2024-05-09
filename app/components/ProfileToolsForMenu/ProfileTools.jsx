@@ -9,25 +9,25 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 function ProfileTools({closeModal}) {
     return (
         <div className={styles.ProfileTools}>
-            <Link href="/account/messages">
+            <Link href="/messgaes">
                 <div className={styles.item} onClick={closeModal}>
                     <MessageIcon fontSize="large" color="primary" />
                     <p>Messages</p>
                 </div>
             </Link>
-            <Link href="/account/offers">
+            <Link href="/account">
                 <div className={styles.item} onClick={closeModal}>
                     <DirectionsCarIcon fontSize="large" color="primary" />
                     <p>My Offers</p>
                 </div>
             </Link>
-            <Link href="/account/saved">
+            <Link href="/account">
                 <div className={styles.item} onClick={closeModal}>
                     <FavoriteIcon fontSize="large" color="primary" />
                     <p>Saved</p>
                 </div>
             </Link>
-            <Link href="/account/profile">
+            <Link href="/account">
                 <div className={styles.item} onClick={closeModal}>
                     <AccountBoxIcon fontSize="large" color="primary" />
                     <p>Profile</p>

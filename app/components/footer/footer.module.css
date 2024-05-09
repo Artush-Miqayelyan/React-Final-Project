@@ -1,12 +1,15 @@
 .footerContainer {
-    width: 100%;
+    width: 80%;
     height: 70px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    position: sticky;
     justify-content: space-between;
+<<<<<<< HEAD
     margin-top: 20px;
+=======
+    border-top: 1px solid grey;
+    position: sticky;
+>>>>>>> 19602deaec1ff3ffafa404ca3398a89768a96534
 }
 
 .footerTop {
@@ -23,7 +26,6 @@
     justify-content: center;
     gap: 25px;
     align-items: center;
-    border-top: 1px solid grey;
 }
 
 .footerBottom a{

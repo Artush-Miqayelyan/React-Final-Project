@@ -4,6 +4,7 @@ import filteredAutoshopSlice from './features/mainFilterSlice/mainFilterSlice'
 import filterPropsSlice from './features/filterProps/filterPropsSlice'
 import usersReducer from './features/users/usersSlice'
 import IsLoggedInSlice from './features/IsLoggedIn/IsLoggedInSlice'
+import currentUserSlice from './features/currentUser/currentUserSlice'
 
 export const store = configureStore({
     reducer: {
@@ -11,6 +12,7 @@ export const store = configureStore({
         filteredAutoshop: filteredAutoshopSlice,
         filterProps: filterPropsSlice,
         users: usersReducer,
-        IsLoggedIn: IsLoggedInSlice
+        IsLoggedIn: IsLoggedInSlice,
+        currentUser: currentUserSlice
     }
 })

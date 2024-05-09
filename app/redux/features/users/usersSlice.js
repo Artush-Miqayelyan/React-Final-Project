@@ -7,7 +7,7 @@ export const usersSlice = createSlice({
     name: "users",
     initialState,
     reducers:{
-
+        
     },
     extraReducers: builder => {
         builder
@@ -17,7 +17,7 @@ export const usersSlice = createSlice({
     }
 })
 
-export const {} = usersSlice.actions
+export const { setUsers } = usersSlice.actions
 
 export const selectUsers = (state) => state.users
 

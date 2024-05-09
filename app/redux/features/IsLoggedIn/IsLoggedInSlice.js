@@ -1,19 +1,16 @@
-import { Login } from '@mui/icons-material'
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = true
+const initialState = false
 
 export const IsLoggedInSlice = createSlice({
     name: "IsLoggedIn",
     initialState,
     reducers:{
         ExitFromAccount: (state) => {
-            state = false
-            return state
+            return false
         },
         SignInToAccount: (state) => {
-            state = true
-            return state
+            return true
         }
     },
 })

@@ -37,18 +37,6 @@ const OrdinarySearchDropdowns = memo(() => {
     const defaultCars = useSelector(selectCars)
     const filterProps = useSelector(selectFilterProps)
 
-    useEffect(() => {
-        console.log("DEFAULT CARS ::: ", defaultCars)
-    }, [defaultCars])
-
-    useEffect(() => {
-        console.log("FILTERED ::: ", FILTERED)
-    }, [FILTERED])
-
-    useEffect(() => {
-        console.log("RERENDERED ::: ", defaultCars)
-    },)
-
     const [marksInputValue, setMarksInputValue] = useState('')
     const [modelsInputValue, setModelsInputValue] = useState('')
     const [yearAtInputValue, setYearAtInputValue] = useState('')

@@ -21,7 +21,7 @@ function MessengesSide({ closeModal }) {
                 </span>
             </div>
             <div className={styles.btn} onClick={closeModal}>
-                <Link href="/login">
+                <Link href="/messages">
                     <Button variant="contained" fullWidth >
                         Sign In
                     </Button>
