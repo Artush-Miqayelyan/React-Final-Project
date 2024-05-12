@@ -87,7 +87,7 @@ function Header() {
                             <DirectionsCarFilledIcon fontSize="large" color="primary" />
                             <p>Dealers</p>
                         </Link>
-                        <Link onClick={IsLoggedIn === false ? openMessengesInModal : null} href={IsLoggedIn === false ? '/' : '/account/messages'} className={styles.helpSec}>
+                        <Link onClick={IsLoggedIn === false ? openMessengesInModal : null} href={IsLoggedIn === false ? '/' : '/messages'} className={styles.helpSec}>
                             <MessageIcon fontSize="large" color="primary" />
                             <p>Messages</p>
                         </Link>

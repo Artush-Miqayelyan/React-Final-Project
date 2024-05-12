@@ -1,0 +1,123 @@
+.MessagesComponent {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    border-radius: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.Chats {
+    padding: 4px;
+    height: 98%;
+    width: 28%;
+    border: 1px solid rgb(78, 75, 75);
+    border-radius: 1%;
+    background-color: rgba(67, 142, 172, 0.078);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ToggleChatsSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.SelectChat{
+    width: 320px;
+}
+
+.CurrentChat {
+    height: 98%;
+    width: 70%;
+    border: 1px solid rgb(78, 75, 75);
+    border-radius: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: rgba(67, 142, 172, 0.078);
+}
+
+.ChatHeader {
+    background-color: white;
+    height: 60px;
+    width: 98%;
+    border: 1px solid rgb(78, 75, 75);
+    border-radius: 2%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.userInfo {
+    width: 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.ChatContent {
+    height: 510px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.MessagesContainer {
+    position: relative;
+    padding: 25px;
+    height: 430px;
+    width: 98%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.MessageSendByHim {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.MessageSendByMe {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: end;
+}
+
+.messagetext {
+    height: auto;
+    width: 30%;
+    border: 1px solid rgb(78, 75, 75);
+    border-radius: 4%;
+    background-color: rgba(67, 142, 172, 0.078);
+    display: flex;
+    align-items: center;
+    padding: 2px;
+}
+
+.SendMessageContainer {
+    height: 70px;
+    width: 98%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}

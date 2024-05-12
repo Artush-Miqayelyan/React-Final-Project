@@ -108,8 +108,8 @@ export const filterPropsSlice = createSlice({
     },
 });
 
-export const { 
-    
+export const {
+
     dispatchMarksInputValue,
     dispatchModelsInputValue,
     dispatchYearAtInputValue,

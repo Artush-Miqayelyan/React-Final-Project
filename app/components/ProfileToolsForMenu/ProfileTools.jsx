@@ -9,7 +9,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 function ProfileTools({closeModal}) {
     return (
         <div className={styles.ProfileTools}>
-            <Link href="/messgaes">
+            <Link href="/messages">
                 <div className={styles.item} onClick={closeModal}>
                     <MessageIcon fontSize="large" color="primary" />
                     <p>Messages</p>

@@ -41,14 +41,17 @@ function Main() {
           </> : <>
             {cars.length > 0 && cars.map((car) => {
               if (car.priority === "ontop") {
-                return <CarCard
-                  key={car.id}
-                  img={car.img[0]}
-                  price={car.price}
-                  year={car.year}
-                  mark={car.brand}
-                  model={car.model}
-                />
+                return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
+                  <CarCard
+                    key={car.id}
+                    img={car.img[0].imgUrl}
+                    price={car.price}
+                    year={car.year}
+                    mark={car.brand}
+                    model={car.model}
+                    priority={car.priority}
+                  />
+                </Link>
               }
             })}
             <Button variant="contained" onClick={() => setOntop(!ontop)}>Show less</Button>
@@ -60,27 +63,33 @@ function Main() {
         <div className={styles.carsContainer}>
           {urgentSale ? <>
             {minUrgentSale.length > 0 && minUrgentSale.map((car) => {
-              return <CarCard
-                key={car.id}
-                img={car.img[0].imgUrl}
-                price={car.price}
-                year={car.year}
-                mark={car.brand}
-                model={car.model}
-              />
-            })}
-            <Button variant="contained" onClick={() => setUrgentSale(!urgentSale)}>Show more</Button>
-          </> : <>
-            {cars.length > 0 && cars.map((car) => {
-              if (car.priority === "urgent sale") {
-                return <CarCard
+              return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
+                <CarCard
                   key={car.id}
                   img={car.img[0].imgUrl}
                   price={car.price}
                   year={car.year}
                   mark={car.brand}
                   model={car.model}
+                  priority={car.priority}
                 />
+              </Link>
+            })}
+            <Button variant="contained" onClick={() => setUrgentSale(!urgentSale)}>Show more</Button>
+          </> : <>
+            {cars.length > 0 && cars.map((car) => {
+              if (car.priority === "urgent sale") {
+                return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
+                  <CarCard
+                    key={car.id}
+                    img={car.img[0].imgUrl}
+                    price={car.price}
+                    year={car.year}
+                    mark={car.brand}
+                    model={car.model}
+                    priority={car.priority}
+                  />
+                </Link>
               }
             })}
             <Button variant="contained" onClick={() => setUrgentSale(!urgentSale)}>Show less</Button>
@@ -93,27 +102,33 @@ function Main() {
         <div className={styles.carsContainer}>
           {officialDiller ? <>
             {minOfficialDiller.length > 0 && minOfficialDiller.map((car) => {
-              return <CarCard
-                key={car.id}
-                img={car.img[0]}
-                price={car.price}
-                year={car.year}
-                mark={car.brand}
-                model={car.model}
-              />
+              return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
+                <CarCard
+                  key={car.id}
+                  img={car.img[0].imgUrl}
+                  price={car.price}
+                  year={car.year}
+                  mark={car.brand}
+                  model={car.model}
+                  priority={car.priority}
+                />
+              </Link>
             })}
             <Button variant="contained" onClick={() => setOfficialDiller(!officialDiller)}>Show more</Button>
           </> : <>
             {cars.length > 0 && cars.map((car) => {
               if (car.isOfficialDiller === true) {
-                return <CarCard
-                  key={car.id}
-                  img={car.img[0]}
-                  price={car.price}
-                  year={car.year}
-                  mark={car.brand}
-                  model={car.model}
-                />
+                return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
+                  <CarCard
+                    key={car.id}
+                    img={car.img[0].imgUrl}
+                    price={car.price}
+                    year={car.year}
+                    mark={car.brand}
+                    model={car.model}
+                    priority={car.priority}
+                  />
+                </Link>
               }
             })}
             <Button variant="contained" onClick={() => setOfficialDiller(!officialDiller)}>Show less</Button>

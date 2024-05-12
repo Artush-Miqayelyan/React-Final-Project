@@ -68,14 +68,7 @@ function Page({ params }) {
       </div>
       <div className={styles.carContainer}>
         <div className={styles.imgContainer}>
-          {/* <Image
-            priority
-            objectFit="cover"
-            fill
-            src={imgUrl}
-            alt="car photo"
-          /> */}
-          <ImageList sx={{ width: 650, height: 450 }} cols={3} rowHeight={164}>
+          <ImageList sx={{ width: 500, height: 492 }} cols={3} rowHeight={164}>
             {imgUrls ? imgUrls.map((currentImg) => (
               <ImageListItem key={currentImg.imgUrl}>
                 <Image
@@ -87,7 +80,7 @@ function Page({ params }) {
                   loading="lazy"
                 />
               </ImageListItem>
-            )) : <h1>Can not load image</h1>}
+            )) : <h1>Loading</h1>}
           </ImageList>
         </div>
         <div className={styles.carInfo}>
