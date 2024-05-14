@@ -44,6 +44,7 @@ function Menu() {
                                 alt="carLogo"
                                 fill
                                 style={{ objectFit: "cover", mixBlendMode: "multiply", cursor: "pointer" }}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             // layout="responsive"
                             />
                         </Tooltip>

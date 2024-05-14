@@ -1,11 +1,60 @@
-import React, { useState , memo} from 'react';
+import React, {
+    useState,
+    useEffect,
+    memo
+} from 'react';
 import styles from './OrdinarySearchCheckboxes.module.css'
-import FILTER_CHECKBOXES from '../../../../constants/FilterDropdownsCheckboxes/Checkboxes'
+
+import FILTER_CHECKBOXES from '@/app/constants/FilterDropdownsCheckboxes/Checkboxes'
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 
+import { useDispatch, useSelector } from 'react-redux';
+
+import {
+    selectCars
+} from '@/app/redux/features/autoshop/autoshopSlice'
+
+import {
+    setFilteredCars
+} from '@/app/redux/features/mainFilterSlice/mainFilterSlice'
+
+import {
+    dispatchCustomsClearedCheckboxValue,
+    dispatchInstallmentPaymentCheckboxValue,
+    dispatchExchangeCheckboxValue,
+    dispatchDillersCheckboxValue,
+    dispatchOfficalDillersCheckboxValue,
+    selectFilterProps
+} from '@/app/redux/features/filterProps/filterPropsSlice'
 
 const OridnarySearchCheckboxes = memo(() => {
+
+    useEffect(() => {
+        console.log('Component Re-rendered')
+    } , )
+
+    const dispatch = useDispatch()
+    const filterProps = useSelector(selectFilterProps)
+    const initialCarsData = useSelector(selectCars)
+
+    useEffect(() => {
+        const props = Object.keys(filterProps)
+
+        const filtered = initialCarsData
+
+        const res = props.reduce((accumulator, currentProp) => {
+            if (filterProps[currentProp].value) {
+                return filterProps[currentProp].StartFilter(accumulator)
+                // console.log("Filter Result :::::: " , result)
+            }
+            return accumulator
+        }, filtered)
+
+        console.log("Result :::::", res)
+    }, [filterProps])
+
+    console.log('hkhjhajkhjkhkjjkk')
 
     const [customsClearedCheckboxValue, setCustomsClearedCheckboxValue] = useState(false)
     const [installmentPaymentCheckboxValue, setInstallmentPaymentCheckboxValue] = useState(false)
@@ -13,24 +62,31 @@ const OridnarySearchCheckboxes = memo(() => {
     const [dillersCheckboxValue, setDillersCheckboxValue] = useState(false)
     const [officalDillersCheckboxValue, setOfficalDillersCheckboxValue] = useState(false)
 
-    function handleCustomsClearedCheckboxValue(){
+    function handleCustomsClearedCheckboxValue() {
+        debugger
         setCustomsClearedCheckboxValue(!customsClearedCheckboxValue)
+        dispatch(dispatchCustomsClearedCheckboxValue(!customsClearedCheckboxValue))
+        console.log("Customs cleared")
     }
 
-    function handleInstallmentPaymentCheckboxValue(){
+    function handleInstallmentPaymentCheckboxValue() {
         setInstallmentPaymentCheckboxValue(!installmentPaymentCheckboxValue)
+        dispatch(dispatchInstallmentPaymentCheckboxValue(!installmentPaymentCheckboxValue))
     }
 
-    function handleExchangeCheckboxValue(){
+    function handleExchangeCheckboxValue() {
         setExchangeCheckboxValue(!exchangeCheckboxValue)
+        dispatch(dispatchExchangeCheckboxValue(!exchangeCheckboxValue))
     }
 
-    function handleDillersCheckboxValue(){
+    function handleDillersCheckboxValue() {
         setDillersCheckboxValue(!dillersCheckboxValue)
+        dispatch(dispatchDillersCheckboxValue(!dillersCheckboxValue))
     }
 
-    function handleOfficalDillersCheckboxValue(){
+    function handleOfficalDillersCheckboxValue() {
         setOfficalDillersCheckboxValue(!officalDillersCheckboxValue)
+        dispatch(dispatchOfficalDillersCheckboxValue(!officalDillersCheckboxValue))
     }
 
     return (
@@ -38,32 +94,32 @@ const OridnarySearchCheckboxes = memo(() => {
             <FormControlLabel
                 control={<Checkbox />}
                 label={FILTER_CHECKBOXES.CUSTOMS_CLEARED}
-                value={customsClearedCheckboxValue}
-                onClick={handleCustomsClearedCheckboxValue}
+                checked={customsClearedCheckboxValue}
+                onChange={handleCustomsClearedCheckboxValue}
             />
             <FormControlLabel
                 control={<Checkbox />}
                 label={FILTER_CHECKBOXES.INSTALLMENT_PAYMENT}
-                value={installmentPaymentCheckboxValue}
-                onClick={handleInstallmentPaymentCheckboxValue}
+                checked={installmentPaymentCheckboxValue}
+                onChange={handleInstallmentPaymentCheckboxValue}
             />
             <FormControlLabel
                 control={<Checkbox />}
                 label={FILTER_CHECKBOXES.EXCHANGE}
-                value={exchangeCheckboxValue}
-                onClick={handleExchangeCheckboxValue}
+                checked={exchangeCheckboxValue}
+                onChange={handleExchangeCheckboxValue}
             />
             <FormControlLabel
                 control={<Checkbox />}
                 label={FILTER_CHECKBOXES.DILLERS}
-                value={dillersCheckboxValue}
-                onClick={handleDillersCheckboxValue}
+                checked={dillersCheckboxValue}
+                onChange={handleDillersCheckboxValue}
             />
             <FormControlLabel
                 control={<Checkbox />}
                 label={FILTER_CHECKBOXES.OFFICAL_DILLERS}
-                value={officalDillersCheckboxValue}
-                onClick={handleOfficalDillersCheckboxValue}
+                checked={officalDillersCheckboxValue}
+                onChange={handleOfficalDillersCheckboxValue}
             />
         </div>
     );

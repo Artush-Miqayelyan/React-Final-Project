@@ -1,28 +1,104 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
 const initialState = {
     //ordinary dropdowns
-    marksInputValue: '',
-    modelsInputValue: '',
-    yearAtInputValue: '',
-    yearToInputValue: '',
-    priceAtInputValue: '',
-    priceToInputValue: '',
+    marksInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.brand === this.value)
+        }
+    },
+    modelsInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.model === this.value)
+        }
+    },
+    yearAtInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.year >= this.value)
+        }
+    },
+    yearToInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.year <= this.value)
+        }
+    },
+    priceAtInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.price >= this.value)
+        }
+    },
+    priceToInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.price <= this.value)
+        }
+    },
     //extended search props
-    bodyTypesInputValue: '',
-    steeringTypesInputValue: '',
-    transmissionTypesInputValue: '',
-    engineTypesInputValue: '',
-    driveTypesInputValue: '',
-    countriesInputValue: '',
-    onRoadCheckboxValue: '',
-    onAuctionCheckboxValue: '',
+    bodyTypesInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.body_type.toLowerCase() === this.value.toLowerCase())
+        }
+    },
+    steeringTypesInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.steering.toLowerCase() === this.value.toLowerCase())
+        }
+    },
+    transmissionTypesInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.transmission.toLowerCase() === this.value.toLowerCase())
+        }
+    },
+    engineTypesInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.engine.toLowerCase() === this.value.toLowerCase())
+        }
+    },
+    driveTypesInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.drive.toLowerCase() === this.value.toLowerCase())
+        }
+    },
+    countriesInput: {
+        value: '', StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.country.toLowerCase() === this.value.toLowerCase())
+        }
+    },
+    onRoadCheckbox: {
+        value: false, StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.on_road === this.value)
+        }
+    },
+    onAuctionCheckbox: {
+        value: false, StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.on_auction === this.value)
+        }
+    },
     //ordinary checkboxes
-    customsClearedCheckboxValue: '',
-    installmentPaymentCheckboxValue: '',
-    exchangeCheckboxValue: '',
-    dillersCheckboxValue: '',
-    officalDillersCheckboxValue: '',
+    customsClearedCheckbox: {
+        value: false, StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.customs_cleared === this.value)
+        }
+    },
+    installmentPaymentCheckbox: {
+        value: false, StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.installment_payment === this.value)
+        }
+    },
+    exchangeCheckbox: {
+        value: false, StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.exchange === this.value)
+        }
+    },
+    dillersCheckbox: {
+        value: false, StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.isDiller === this.value)
+        }
+    },
+    officalDillersCheckbox: {
+        value: false, StartFilter: function (filteredCarsData) {
+            return filteredCarsData.filter(current => current.isOfficialDiller === this.value)
+        }
+    },
 };
 
 export const filterPropsSlice = createSlice({
@@ -30,80 +106,175 @@ export const filterPropsSlice = createSlice({
     initialState,
     reducers: {
         dispatchMarksInputValue(state, action) {
-            state = { ...state, marksInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                marksInput: {
+                    ...state.marksInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchModelsInputValue(state, action) {
-            state = { ...state, modelsInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                modelsInput: {
+                    ...state.modelsInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchYearAtInputValue(state, action) {
-            state = { ...state, yearAtInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                yearAtInput: {
+                    ...state.yearAtInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchYearToInputValue(state, action) {
-            state = { ...state, yearToInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                yearToInput: {
+                    ...state.yearToInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchPriceAtInputValue(state, action) {
-            state = { ...state, priceAtInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                priceAtInput: {
+                    ...state.priceAtInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchPriceToInputValue(state, action) {
-            state = { ...state, priceToInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                priceToInput: {
+                    ...state.priceToInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchBodyTypesInputValue(state, action) {
-            state = { ...state, bodyTypesInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                bodyTypesInput: {
+                    ...state.bodyTypesInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchSteeringTypesInputValue(state, action) {
-            state = { ...state, steeringTypesInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                steeringTypesInput: {
+                    ...state.steeringTypesInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchTransmissionTypesInputValue(state, action) {
-            state = { ...state, transmissionTypesInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                transmissionTypesInput: {
+                    ...state.transmissionTypesInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchEngineTypesInputValue(state, action) {
-            state = { ...state, engineTypesInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                engineTypesInput: {
+                    ...state.engineTypesInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchDriveTypesInputValue(state, action) {
-            state = { ...state, driveTypesInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                driveTypesInput: {
+                    ...state.driveTypesInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchCountriesInputValue(state, action) {
-            state = { ...state, countriesInputValue: action.payload }
-            return state
+            return {
+                ...state,
+                countriesInput: {
+                    ...state.countriesInput,
+                    value: action.payload
+                }
+            }
         },
         dispatchOnRoadCheckboxValue(state, action) {
-            state = { ...state, onRoadCheckboxValue: action.payload }
-            return state
+            return {
+                ...state,
+                onRoadCheckbox: {
+                    ...state.onRoadCheckbox,
+                    value: action.payload
+                }
+            }
         },
         dispatchOnAuctionCheckboxValue(state, action) {
-            state = { ...state, onAuctionCheckboxValue: action.payload }
-            return state
+            return {
+                ...state,
+                onAuctionCheckbox: {
+                    ...state.onAuctionCheckbox,
+                    value: action.payload
+                }
+            }
         },
         dispatchCustomsClearedCheckboxValue(state, action) {
-            state = { ...state, customsClearedCheckboxValue: action.payload }
-            return state
+            return {
+                ...state,
+                customsClearedCheckbox: {
+                    ...state.customsClearedCheckbox,
+                    value: action.payload
+                }
+            }
         },
         dispatchInstallmentPaymentCheckboxValue(state, action) {
-            state = { ...state, installmentPaymentCheckboxValue: action.payload }
-            return state
+            return {
+                ...state,
+                installmentPaymentCheckbox: {
+                    ...state.installmentPaymentCheckbox,
+                    value: action.payload
+                }
+            }
         },
         dispatchExchangeCheckboxValue(state, action) {
-            state = { ...state, exchangeCheckboxValue: action.payload }
-            return state
+            return {
+                ...state,
+                exchangeCheckbox: {
+                    ...state.exchangeCheckbox,
+                    value: action.payload
+                }
+            }
         },
         dispatchDillersCheckboxValue(state, action) {
-            state = { ...state, dillersCheckboxValue: action.payload }
-            return state
+            return {
+                ...state,
+                dillersCheckbox: {
+                    ...state.dillersCheckbox,
+                    value: action.payload
+                }
+            }
         },
         dispatchOfficalDillersCheckboxValue(state, action) {
-            state = { ...state, officalDillersCheckboxValue: action.payload }
-            return state
+            return {
+                ...state,
+                officalDillersCheckbox: {
+                    ...state.officalDillersCheckbox,
+                    value: action.payload
+                }
+            }
         }
     },
 });

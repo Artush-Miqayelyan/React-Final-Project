@@ -21,11 +21,12 @@ function Footer() {
           <div className={styles.logo}>
             <Link href='/'><Image
               priority
-              objectFit="cover"
+              style={{objectFit: "cover"}}
               fill
               src={FooterLogo}
               color="black"
               alt="Logo"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             /></Link>
           </div>
         </div>

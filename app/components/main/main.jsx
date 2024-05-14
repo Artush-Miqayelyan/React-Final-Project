@@ -1,15 +1,25 @@
 "use client"
+
+import React, { useEffect, useState } from "react";
 import styles from "./main.module.css";
-import { selectCars } from "../../redux/features/autoshop/autoshopSlice";
-import { useSelector, useDispatch } from "react-redux"
+
+import { minimumVersion } from "./utils";
+
+import { useSelector } from "react-redux"
+
+import {
+  selectCars
+} from "../../redux/features/autoshop/autoshopSlice";
+
 import CarCard from "../carcard/carCard";
 import Link from "next/link";
-import { minimumVersion } from "./utils";
-import { useState } from "react";
+
 import Button from '@mui/material/Button';
+import Skeleton from '@mui/material/Skeleton';
 
 function Main() {
   const cars = useSelector(selectCars);
+
   const [ontop, setOntop] = useState(true)
   const [urgentSale, setUrgentSale] = useState(true)
   const [officialDiller, setOfficialDiller] = useState(true)
@@ -24,7 +34,7 @@ function Main() {
         <h3 className={styles.title}>Top Announcements</h3>
         <div className={styles.carsContainer}>
           {ontop ? <>
-            {minOntop.length > 0 && minOntop.map((car) => {
+            {minOntop.length ? minOntop.map((car) => {
               return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
                 <CarCard
                   key={car.id}
@@ -36,10 +46,10 @@ function Main() {
                   priority={car.priority}
                 />
               </Link>
-            })}
+            }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setOntop(!ontop)}>Show more</Button>
           </> : <>
-            {cars.length > 0 && cars.map((car) => {
+            {cars.length ? cars.map((car) => {
               if (car.priority === "ontop") {
                 return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
                   <CarCard
@@ -53,7 +63,7 @@ function Main() {
                   />
                 </Link>
               }
-            })}
+            }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setOntop(!ontop)}>Show less</Button>
           </>}
         </div>
@@ -62,7 +72,7 @@ function Main() {
         <h3 className={styles.title}>Urgent Sale</h3>
         <div className={styles.carsContainer}>
           {urgentSale ? <>
-            {minUrgentSale.length > 0 && minUrgentSale.map((car) => {
+            {minUrgentSale.length ? minUrgentSale.map((car) => {
               return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
                 <CarCard
                   key={car.id}
@@ -74,10 +84,10 @@ function Main() {
                   priority={car.priority}
                 />
               </Link>
-            })}
+            }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setUrgentSale(!urgentSale)}>Show more</Button>
           </> : <>
-            {cars.length > 0 && cars.map((car) => {
+            {cars.length ? cars.map((car) => {
               if (car.priority === "urgent sale") {
                 return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
                   <CarCard
@@ -91,7 +101,7 @@ function Main() {
                   />
                 </Link>
               }
-            })}
+            }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setUrgentSale(!urgentSale)}>Show less</Button>
           </>
           }
@@ -101,7 +111,7 @@ function Main() {
         <h3 className={styles.title}>Offers from dealers</h3>
         <div className={styles.carsContainer}>
           {officialDiller ? <>
-            {minOfficialDiller.length > 0 && minOfficialDiller.map((car) => {
+            {minOfficialDiller.length ? minOfficialDiller.map((car) => {
               return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
                 <CarCard
                   key={car.id}
@@ -113,10 +123,10 @@ function Main() {
                   priority={car.priority}
                 />
               </Link>
-            })}
+            }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setOfficialDiller(!officialDiller)}>Show more</Button>
           </> : <>
-            {cars.length > 0 && cars.map((car) => {
+            {cars.length ? cars.map((car) => {
               if (car.isOfficialDiller === true) {
                 return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
                   <CarCard
@@ -130,7 +140,7 @@ function Main() {
                   />
                 </Link>
               }
-            })}
+            }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setOfficialDiller(!officialDiller)}>Show less</Button>
           </>}
         </div>
