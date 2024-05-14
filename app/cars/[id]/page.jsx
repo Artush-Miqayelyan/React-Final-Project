@@ -12,6 +12,8 @@ import Paper from '@mui/material/Paper';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
+import Skeleton from '@mui/material/Skeleton';
+
 import LocalPhoneOutlinedIcon from '@mui/icons-material/LocalPhoneOutlined';
 import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
 
@@ -60,14 +62,14 @@ function Page({ params }) {
   ];
   return (
     <section className={styles.container}>
-      <div className={styles.mainCarInfo}>
+      {car ? <div className={styles.mainCarInfo}>
         <h2>{`${car.year} ${car.brand} ${car.model}`}</h2><br />
         <span style={{ color: "green" }}>{car.country}</span>
         {car.customs_cleared ? <span style={{ color: "blue" }}> Customs cleared</span> : <span style={{ color: "blue" }}> Not cleared </span>}<br /><br />
         <h2>{`${car.price} $`}</h2>
-      </div>
+      </div> : <Skeleton variant="rectangular" width={1350} height={150} />}
       <div className={styles.carContainer}>
-        <div className={styles.imgContainer}>
+        {imgUrls ? <div className={styles.imgContainer}>
           <ImageList sx={{ width: 500, height: 492 }} cols={3} rowHeight={164}>
             {imgUrls ? imgUrls.map((currentImg) => (
               <ImageListItem key={currentImg.imgUrl}>
@@ -82,11 +84,10 @@ function Page({ params }) {
               </ImageListItem>
             )) : <h1>Loading</h1>}
           </ImageList>
-        </div>
+        </div> : <Skeleton variant="rectangular" width={550} height={492} />}
         <div className={styles.carInfo}>
           <TableContainer component={Paper}>
             <Table aria-label="simple table">
-
               <TableBody>
                 {rows.map((row) => (
                   <TableRow
@@ -96,7 +97,7 @@ function Page({ params }) {
                     <TableCell component="th" scope="row">
                       {row.name}
                     </TableCell>
-                    <TableCell align="right">{row.value}</TableCell>
+                    <TableCell align="right">{row.value ? row.value : <Skeleton variant="rectangular" width={100} height={15} />}</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

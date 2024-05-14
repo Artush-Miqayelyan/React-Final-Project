@@ -1,15 +1,16 @@
 import React, { useEffect, useState, memo } from 'react';
 import styles from './OrdinarySearchDropdowns.module.css'
-import FILTER_DROPDOWNS from '../../../../constants/FilterDropdownsCheckboxes/Dropdowns'
+
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
-import { useDispatch, useSelector } from 'react-redux';
-
+import FILTER_DROPDOWNS from '../../../../constants/FilterDropdownsCheckboxes/Dropdowns'
 import CARS_AND_MODELS from '../../../../constants/CarsData/CarsAndModels'
 import MARKS from '../../../../constants/CarsData/Marks';
 import PRICE from '../../../../constants/CarsData/Price'
 import YEARS from '../../../../constants/CarsData/Years'
+
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
     selectCars
@@ -23,42 +24,54 @@ import {
     dispatchPriceAtInputValue,
     dispatchPriceToInputValue,
     selectFilterProps
-} from '../../../../redux/features/filterProps/filterPropsSlice'
+} from '@/app/redux/features/filterProps/filterPropsSlice'
 
 import {
-    filterByMark,
-    selectFilteredCars
-} from '../../../../redux/features/mainFilterSlice/mainFilterSlice'
+    setFilteredCars
+} from '@/app/redux/features/mainFilterSlice/mainFilterSlice'
 
 const OrdinarySearchDropdowns = memo(() => {
 
     const dispatch = useDispatch()
-    const FILTERED = useSelector(selectFilteredCars)
-    const defaultCars = useSelector(selectCars)
     const filterProps = useSelector(selectFilterProps)
+    const initialCarsData = useSelector(selectCars)
+    const state = useSelector(state => state)
+
+    useEffect(() => {
+        const props = Object.keys(filterProps)
+
+        const filtered = initialCarsData
+
+        const res = props.reduce((accumulator , currentProp) => {
+            if(filterProps[currentProp].value){
+                return filterProps[currentProp].StartFilter(accumulator)
+                // console.log("Filter Result :::::: " , result)
+            }
+            return accumulator
+        } , filtered)
+
+        dispatch(setFilteredCars(res))
+    } , [filterProps])
 
     const [marksInputValue, setMarksInputValue] = useState('')
     const [modelsInputValue, setModelsInputValue] = useState('')
     const [yearAtInputValue, setYearAtInputValue] = useState('')
     const [yearToInputValue, setYearToInputValue] = useState('')
     const [priceAtInputValue, setPriceAtInputValue] = useState('')
-    const [priceToInputValue, setPriceToInputValue] = useState('')
+    const [priceToInputValue, setPriceToInputValue] = useState('')    
 
     function handleMarksInputChange(e, v) {
         if (!MARKS.includes(v)) {
             setMarksInputValue('')
             setModelsInputValue('')
+            dispatch(dispatchModelsInputValue(''))
         } else {
             setMarksInputValue(v)
             setModelsInputValue('')
+            dispatch(dispatchModelsInputValue(''))
         }
+
         dispatch(dispatchMarksInputValue(v))
-        console.log("IN TIMEOUT ::: ", defaultCars)
-        console.log("IN TIMEOUT PROPS ::: ", filterProps)
-        dispatch(filterByMark({
-            defaultState: defaultCars,
-            filterProps: filterProps
-        }))
     }
 
     function handleModelsInputChange(e, v) {

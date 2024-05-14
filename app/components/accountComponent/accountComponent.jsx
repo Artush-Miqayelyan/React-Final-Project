@@ -19,7 +19,7 @@ import {
 
 function AccountComponent() {
 
-    const [alignment, setAlignment] = useState('My Offers');
+    const [alignment, setAlignment] = useState('');
     const currentUser = useSelector(selectCurrentUser)
 
     const handleAlignmentChange = (event, newAlignment) => {
@@ -55,8 +55,10 @@ function AccountComponent() {
                 {alignment === 'My Offers'
                     ? <MyOffersComponent />
                     : alignment === 'Saved'
-                        ? <SavedOffers/>
-                        : <SettingsComponent />
+                        ? <SavedOffers />
+                        : alignment === 'Profile Settings'
+                            ? <SettingsComponent />
+                            : null
                 }
             </div>
         </div>

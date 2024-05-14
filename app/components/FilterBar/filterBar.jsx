@@ -5,8 +5,15 @@ import OridnarySearchCheckboxes from '../FilterPropsByState/OrdinarySearch/Check
 import OrdinarySearchDropdowns from '../FilterPropsByState/OrdinarySearch/Dropdowns/OrdinarySearchDropdowns'
 import ExtendedSearch from '../FilterPropsByState/ExtendedSearch/ExtendedSearch';
 
+import { useSelector } from 'react-redux';
+
+import {
+    selectFilteredCars
+} from '@/app/redux/features/mainFilterSlice/mainFilterSlice'
+
 function FilterBar() {
 
+    const FilteredCars = useSelector(selectFilteredCars)
     const [IsExtendedSearchOpen, setIsExtendedSearchOpen] = useState(false)
 
     return (
@@ -20,7 +27,7 @@ function FilterBar() {
                 </div>
             </div>
             <Button className={styles.searchBtn} variant="contained" disableElevation>
-                All "Offers count" Offers
+                {`All ${FilteredCars.length ? FilteredCars.length : ''} Offers`}
             </Button>
         </div>
     );

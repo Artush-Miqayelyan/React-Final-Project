@@ -55,6 +55,7 @@ function SignIn() {
     }
 
     function handleOnSignInClick() {
+
         fetch(`http://localhost:4000/users?username=${usernameInputValue}`)
             .then(user => user.json())
             .then((user) => {

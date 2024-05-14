@@ -75,7 +75,8 @@ function Header() {
                                 src={Logo}
                                 fill
                                 alt="Logo"
-                                objectFit="cover"
+                                style={{objectFit: "cover"}}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             />
                         </Link>
                     </div>
@@ -87,7 +88,7 @@ function Header() {
                             <DirectionsCarFilledIcon fontSize="large" color="primary" />
                             <p>Dealers</p>
                         </Link>
-                        <Link onClick={IsLoggedIn === false ? openMessengesInModal : null} href={IsLoggedIn === false ? '/' : '/messages'} className={styles.helpSec}>
+                        <Link onClick={IsLoggedIn === false ? openMessengesInModal : null} href={IsLoggedIn === false ? {pathname} : '/messages'} className={styles.helpSec}>
                             <MessageIcon fontSize="large" color="primary" />
                             <p>Messages</p>
                         </Link>

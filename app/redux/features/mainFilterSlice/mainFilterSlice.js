@@ -6,16 +6,13 @@ export const filteredAutoshopSlice = createSlice({
     name: "filteredAutoshop",
     initialState,
     reducers: {
-        filterByMark (state , action){
-            const { defaultState , filterProps } = action.payload
-
-            
-            
+        setFilteredCars: (state , action) => {
+            return action.payload
         }
     },  
 });
 
-export const { filterByMark } = filteredAutoshopSlice.actions;
+export const { setFilteredCars } = filteredAutoshopSlice.actions;
 
 export const selectFilteredCars = (state) => state.filteredAutoshop;
 

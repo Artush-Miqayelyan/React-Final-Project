@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './ExtendedCarCard.module.css'
 
 import { IconButton } from '@mui/material';
@@ -14,6 +14,10 @@ import {
 import Image from 'next/image';
 
 function ExtendedCarCard({ car }) {
+
+    useEffect(() => {
+        console.log("Extended Filter Bar ::::: ")
+    }, [])
 
     const currentUser = useSelector(selectCurrentUser)
     const state = useSelector(state => state)
@@ -42,9 +46,10 @@ function ExtendedCarCard({ car }) {
                     priority
                     src={imgUrl}
                     alt="picture"
-                    objectFit="cover"
+                    style={{objectFit: "cover"}}
                     width={180}
                     height={180}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className={styles.img}
                 />
             </div>
@@ -56,13 +61,13 @@ function ExtendedCarCard({ car }) {
             <div className={styles.rightPart}>
                 <div className={styles.price}>{`$ ${price}`}</div>
             </div>
-            <IconButton className={styles.saveBtn}  onClick={() => {
+            <IconButton className={styles.saveBtn} onClick={() => {
                 const updatedUserWithNewSavedOffers = {
                     ...currentUser,
-                    SavedOffers: [...currentUser.SavedOffers , car]
+                    SavedOffers: [...currentUser.SavedOffers, car]
                 }
 
-                handleOnSave(currentUser.id , updatedUserWithNewSavedOffers)
+                handleOnSave(currentUser.id, updatedUserWithNewSavedOffers)
             }}>
                 <FavoriteBorderIcon />
             </IconButton>
