@@ -56,7 +56,6 @@ function ExtendedSearch() {
             }
             return accumulator
         }, filtered)
-        
         dispatch(setFilteredCars(res))
     }, [filterProps])
 
@@ -100,12 +99,12 @@ function ExtendedSearch() {
         dispatch(dispatchCountriesInputValue(v))
     }
 
-    function handleOnRoadCheckboxValue(){
+    function handleOnRoadCheckboxValue() {
         setOnRoadCheckboxValue(!onRoadCheckboxValue)
         dispatch(dispatchOnRoadCheckboxValue(!onRoadCheckboxValue))
     }
 
-    function handleOnAuctionCheckboxValue(){
+    function handleOnAuctionCheckboxValue() {
         setOnAuctionCheckboxValue(!onAuctionCheckboxValue)
         dispatch(dispatchOnAuctionCheckboxValue(!onAuctionCheckboxValue))
     }

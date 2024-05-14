@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import styles from './filterBar.module.css'
 import Button from '@mui/material/Button';
-import OridnarySearchCheckboxes from '../FilterPropsByState/OrdinarySearch/Checkboxes/OrdinarySearchcheckboxes'
+import OridnarySearchCheckboxes from '../FilterPropsByState/OrdinarySearch/Checkboxes/OrdinaryCheckboxes'
 import OrdinarySearchDropdowns from '../FilterPropsByState/OrdinarySearch/Dropdowns/OrdinarySearchDropdowns'
 import ExtendedSearch from '../FilterPropsByState/ExtendedSearch/ExtendedSearch';
 import Link from 'next/link';
@@ -28,11 +28,11 @@ function FilterBar() {
                 </div>
             </div>
             <Link href="/cars/all">
-            <Button className={styles.searchBtn} variant="contained" disableElevation>
-                {`All ${FilteredCars.length ? FilteredCars.length : ''} Offers`}
-            </Button>
+                <Button className={styles.searchBtn} variant="contained" disableElevation>
+                    {`All ${FilteredCars.length ? FilteredCars.length : ''} Offers`}
+                </Button>
             </Link>
-            
+
         </div>
     );
 }

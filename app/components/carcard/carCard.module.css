@@ -8,6 +8,22 @@
    opacity: 1;
    background-color: rgba(67, 142, 172, 0.078);
    border-radius: 7%;
+   cursor: pointer;
+   transition: .5s;
+}
+
+.SingleCarLink{
+    text-decoration: none;
+    color: black;
+}
+
+.SingleCarLink :hover{
+    z-index: 1;
+    box-shadow: 0 8px 16px #1314161f;
+    border-radius: 8px;
+    background-color: rgba(67, 142, 172, 0.078);
+    border: none;
+    transform: scale(1.05);
 }
 
 .imgContainer{
@@ -16,6 +32,14 @@
     position: relative;
     margin-left: 5px;
     margin-top: 5px;
+}
+
+.saveBtn{
+    z-index: 1000;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(222, 219, 219, 0.285);
 }
 
 .img{

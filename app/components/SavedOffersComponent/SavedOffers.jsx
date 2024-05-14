@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './SavedOffers.module.css'
 
 import ExtendedCarCard from '../ExtendedCarCard/ExtendedCarCard'
@@ -12,13 +12,24 @@ function SavedOffers() {
 
     const currentUser = useSelector(selectCurrentUser)
 
+    const [SavedOffers, setSavedOffers] = useState('')
+
+    useEffect(() => {
+        setSavedOffers(currentUser.SavedOffers)
+    }, [currentUser])
+
     return (
         <div className={styles.SavedOffers}>
-            {currentUser?.SavedOffers?.map((current) => {
+            {SavedOffers.length ? SavedOffers.map((currentSavedOffer) => {
+            
+            const isOwnOffer = Boolean(currentUser.offers.find(currentOffer => currentOffer.id === currentSavedOffer.id))
+
                 return <ExtendedCarCard
-                    car={current}
+                    isOwnOffer={isOwnOffer}
+                    isSaved={true}
+                    car={currentSavedOffer}
                 />
-            })}
+            }) : null}
         </div>
 
     );
