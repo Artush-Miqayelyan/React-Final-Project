@@ -7,22 +7,21 @@ import { useState } from "react"
 function SingleCar({ car }) {
 
     const { id, brand, img, year, model, mileage, body_type, color, transmission, steering, engine, price, country, customs_cleared, on_auction, on_road, priority } = car
-    const [imgSrc, setImgSrc] = useState(img[0]["imgUrl"])
-    const handleOnMouseEnter = ()=> setImgSrc(img[1]["imgUrl"])
-    const handleOnMouseLeave = ()=> setImgSrc(img[0]["imgUrl"])
+    const [imgSrc, setImgSrc] = useState(img[0]?.imgUrl)
+    const handleOnMouseEnter = ()=> setImgSrc(img[1]?.imgUrl)
+    const handleOnMouseLeave = ()=> setImgSrc(img[0]?.imgUrl)
 
     return (
         <div className={`${styes.singlCar} ${priority === "urgent sale" ? styes.singlCarBorderRed : styes.singlCarBorderGrey}`}>
             <Link href={`/cars/${id}`}>
                 <div className={styes.imgContainer} onMouseEnter={handleOnMouseEnter} onMouseLeave={handleOnMouseLeave}>
                     <Image
-                        style={{ borderRadius: "7px" }}
+                        style={{ borderRadius: "7px" , objectFit: "cover" }}
                         priority
-                        src={imgSrc}
+                        src={imgSrc || ''}
                         alt="car"
                         fill
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        objectFit="cover"
                     />
                 </div>
                 <div className={styes.mainInfo}>

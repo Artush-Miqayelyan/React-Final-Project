@@ -73,7 +73,11 @@ function PersonalInformtaionComponent() {
             body: JSON.stringify(newData)
         })
             .then(res => res.json())
-            .then(res => dispatch(setCurrentUser(res)))
+            .then(res => dispatch(setCurrentUser(res))).then(() => {
+                setUsernameInputValue('')
+                setEmailInputValue('')
+                setPhoneNumberInputValue('')
+            })
 
     }
 

@@ -1,4 +1,6 @@
 "use client"
+
+import React, { useState, useEffect } from "react"
 import styles from "./sellPage.module.css"
 import { useForm } from "react-hook-form"
 import { Button, debounce } from "@mui/material"
@@ -6,16 +8,30 @@ import Description from "./description/description"
 import LocationSection from "./location/location"
 import AdditionalDataSection from "./additionalData/additionalData"
 import ImageSection from "./imageSection/imageSection"
-import { useState } from "react"
 import PublishSection from "./publishSection/publishSection"
 
+import { useSelector, useDispatch } from "react-redux"
+
+import {
+    selectCurrentUser,
+    setCurrentUser
+} from "@/app/redux/features/currentUser/currentUserSlice"
 
 function SellPage() {
+
+    const dispatch = useDispatch()
+    const currentUser = useSelector(selectCurrentUser)
+    const state = useSelector(state => state)
+
+    useEffect(() => {
+        console.log(state)
+    }, [state])
+
     const [images, setImages] = useState([])
 
     const { handleSubmit, reset, watch, control, formState: { errors } } = useForm({
         defaultValues: {
-            mark: "",
+            brand: "",
             model: "",
             body_type: "",
             city: "",
@@ -47,13 +63,32 @@ function SellPage() {
             ...data,
             img: images,
         }
-        fetch("http://localhost:4000/cars",{
+
+        const newCurrentUserData = {
+            ...currentUser,
+            offers: [...currentUser.offers, fullData]
+        }
+
+        debugger
+
+        fetch(`http://localhost:4000/users/${currentUser.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newCurrentUserData)
+        })
+
+        fetch("http://localhost:4000/cars", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(fullData),
         }).then(res => console.log(res))
+            .then((res) => {
+                dispatch(setCurrentUser())
+            })
 
         reset()
     }

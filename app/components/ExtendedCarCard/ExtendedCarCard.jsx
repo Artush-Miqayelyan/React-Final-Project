@@ -25,9 +25,9 @@ function ExtendedCarCard({ car }) {
     console.log(state)
 
     const { year, brand, model, mileage, body_type, engine, transmission, steering, color, country, customs_cleared, price } = car
-    const ImgUrl = car.img[0].imgUrl
+    const ImgUrl = car.img[0]?.imgUrl
 
-    const imgUrl = typeof ImgUrl === 'string' ? ImgUrl : ImgUrl.imgUrl; //for bag fix
+    const imgUrl = typeof ImgUrl === 'string' ? ImgUrl : ImgUrl?.imgUrl; //for bag fix
 
     function handleOnSave(currentUserID, updatedUserWithNewSavedOffers) {
         fetch(`http://localhost:4000/users/${currentUserID}`, {
@@ -44,7 +44,7 @@ function ExtendedCarCard({ car }) {
             <div className={styles.leftPart}>
                 <Image
                     priority
-                    src={imgUrl}
+                    src={imgUrl || ''}
                     alt="picture"
                     style={{objectFit: "cover"}}
                     width={180}

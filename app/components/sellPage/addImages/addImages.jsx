@@ -22,7 +22,7 @@ function AddImages({ control, name, images, setImages }) {
                     {
                         id: Math.random().toString(),
                         name: files[i].name,
-                        imgUrl: URL.createObjectURL(files[i])
+                        imgUrl : URL.createObjectURL(files[i])
                     }
                 ])
             }
@@ -54,7 +54,7 @@ function AddImages({ control, name, images, setImages }) {
                     {
                         id: Math.random(),
                         name: files[i].name,
-                        url: URL.createObjectURL(files[i])
+                        imgUrl: URL.createObjectURL(files[i])
                     }
                 ])
             }
@@ -92,10 +92,10 @@ function AddImages({ control, name, images, setImages }) {
                                 <span className={styles.delete} onClick={() => deleteImage(image.id)}>&times;</span>
                                 <Image
                                     priority
-                                    src={image.url}
+                                    src={image.imgUrl}
                                     fill
                                     alt={image.name}
-                                    objectFit="cover"
+                                    style={{objectFit : "cover"}}
                                 />
                             </div>
                         })

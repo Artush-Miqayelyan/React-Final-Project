@@ -24,8 +24,8 @@ function Description({ control, errors, watch }) {
                     control={control}
                     options={MARKS}
                     errors={errors}
-                    name="mark"
-                    message="Mark is required"
+                    name="brand"
+                    message="Brand is required"
                 />
                 {watch().mark && <AutoComplete
                     control={control}
@@ -90,7 +90,7 @@ function Description({ control, errors, watch }) {
                     control={control}
                     options={ENGINE_VOLUME_TYPES}
                     errors={errors}
-                    name="engine_volume"
+                    name="engineVolume"
                     message="Engine Volume is required"
                 />
                 <AutoComplete
