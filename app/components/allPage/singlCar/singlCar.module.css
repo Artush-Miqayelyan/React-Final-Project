@@ -1,0 +1,108 @@
+.singlCar {
+    width: 55%;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    cursor: pointer;
+    transition: .5s;
+}
+.singlCarBorderRed{
+    border-bottom: 1px solid red;
+}
+.singlCarBorderGrey{
+    border-bottom: 1px solid #7f7f7ff0;
+}
+.singlCar:hover{
+    z-index: 1;
+    box-shadow: 0 8px 16px #1314161f;
+    border-radius: 8px;
+    background-color: #fff;
+    border: none;
+    transform: scale(1.05);
+}
+.singlCar a {
+    text-decoration: none;
+    color: black;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.imgContainer {
+    width: 30%;
+    height: 100%;
+    border-radius: 7px;
+    position: relative;
+}
+
+.mainInfo {
+    width: 53%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.price{
+    width: 15%;
+    height: 100%;
+}
+.price span{
+    color: #1976D2;
+    font-size: 22px;
+}
+
+.year_mark {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.year {
+    color: #7F7F7F;
+    margin-right: 10px;
+    font-weight: 600;
+    user-select: none;
+    font-size: 20px;
+}
+
+.brand_model {
+    color: #1976D2;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+    user-select: none;
+}
+.brand_model:hover{
+    color: rgba(255, 0, 0, 0.826);
+}
+.mileage{
+    color: #7F7F7F;
+    font-weight: 700;
+    user-select: none;
+    margin-top: 3px;
+}
+.body_type{
+    font-size: 20px;
+    color: #7F7F7F;
+}
+.engine{
+    margin-top: 3px;
+    color: #7F7F7F;
+}
+.country{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+}
+.green{
+    color: rgb(43, 243, 50);
+    margin-left: 3px;
+}
+.red{
+    color: red;
+    margin-left: 3px;
+}
