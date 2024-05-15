@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import styles from './ExtendedCarCard.module.css'
 
 import { IconButton } from '@mui/material';
+import Alert from '@mui/material/Alert';
+import Button from '@mui/material/Button';
 
 import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -27,10 +29,15 @@ function ExtendedCarCard({ isOwnOffer, isSaved, car }) {
 
     const [isSavedValue, setIsSavedValue] = useState(isSaved)
     const [isOwnOfferValue, setIsOwnOfferValue] = useState(isOwnOffer)
+    const [isDeleteOfferWarningVisible, setIsDeleteOfferWarningVisible] = useState(false)
 
     const [imgSrc, setImgSrc] = useState(img[0]?.imgUrl)
     const handleOnMouseEnter = () => setImgSrc(img[1]?.imgUrl)
     const handleOnMouseLeave = () => setImgSrc(img[0]?.imgUrl)
+    
+    const handleUnsaveValue = () => setIsSavedValue(false)
+    const handleSaveValue = () => setIsSavedValue(true)
+
 
     function handleOnSave(currentUserID, updatedUserWithNewSavedOffers) {
         fetch(`http://localhost:4000/users/${currentUserID}`, {
@@ -105,7 +112,7 @@ function ExtendedCarCard({ isOwnOffer, isSaved, car }) {
                             SavedOffers: [...updatedSavedOffers]
                         }
 
-                        setIsSavedValue(false)
+                        handleUnsaveValue()
                         handleOnUnsave(currentUser.id, updatedUserWithUnSavedOffer)
                     }}>
                     <FavoriteIcon color='primary' />
@@ -120,27 +127,37 @@ function ExtendedCarCard({ isOwnOffer, isSaved, car }) {
                                 SavedOffers: [...currentUser.SavedOffers, car]
                             }
 
-                            setIsSavedValue(true)
+                            handleSaveValue()
                             handleOnSave(currentUser.id, updatedUserWithNewSavedOffers)
                         }}>
                         <FavoriteBorderIcon />
                     </IconButton>}
-                {isOwnOfferValue ? <IconButton
+                {isOwnOffer ? <IconButton
                     className={styles.deleteBtn}
-                    onClick={() => {
-                        const updatedOffers = currentUser.offers.filter((current) => current.id !== id)
-                        const updatedSavedOffers = currentUser.SavedOffers.filter((current) => current.id !== id)
-
-                        const updatedUserWithDeletedOffer = {
-                            ...currentUser,
-                            offers: [...updatedOffers],
-                            SavedOffers: [...updatedSavedOffers]
-                        }
-
-                        handleOnOfferDelete(currentUser.id, updatedUserWithDeletedOffer)
-                    }}>
+                    onClick={() => setIsDeleteOfferWarningVisible(true)}>
                     <DeleteIcon color='error' />
                 </IconButton> : null}
+                {isDeleteOfferWarningVisible
+                    ? <Alert severity="warning">
+                        After deletion you will not be able to restore the offer , delete ?
+                        <Button variant="text" onClick={() => {
+                            setIsDeleteOfferWarningVisible(false)
+
+                            const updatedOffers = currentUser.offers.filter((current) => current.id !== id)
+                            const updatedSavedOffers = currentUser.SavedOffers.filter((current) => current.id !== id)
+
+                            const updatedUserWithDeletedOffer = {
+                                ...currentUser,
+                                offers: [...updatedOffers],
+                                SavedOffers: [...updatedSavedOffers]
+                            }
+
+                            handleOnOfferDelete(currentUser.id, updatedUserWithDeletedOffer)
+                        }}>Yes</Button>
+                        <Button variant="text" onClick={setIsDeleteOfferWarningVisible(false)}>No</Button>
+                    </Alert>
+                    : null
+                }
             </div>
         </Link>
     );

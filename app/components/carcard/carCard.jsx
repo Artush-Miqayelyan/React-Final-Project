@@ -32,11 +32,13 @@ function CarCard({ isSaved, car }) {
 
   function handleOnUnSaveClick(event) {
     event.stopPropagation()
+    event.preventDefault()
     setIsSavedValue(false)
   }
 
   function handleOnSaveClick(event) {
     event.stopPropagation()
+    event.preventDefault()
     setIsSavedValue(true)
   }
 

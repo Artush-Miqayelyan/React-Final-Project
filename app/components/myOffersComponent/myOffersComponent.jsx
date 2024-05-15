@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, memo } from 'react';
 import styles from './myOffersComponent.module.css'
 
 import ExtendedCarCard from '../ExtendedCarCard/ExtendedCarCard'
@@ -8,7 +8,7 @@ import {
 
 import { useSelector } from 'react-redux';
 
-function MyOffersComponent() {
+const MyOffersComponent = memo(() => {
 
     const currentUser = useSelector(selectCurrentUser)
     const [currentUserOffers, setCurrentUserOffers] = useState('')
@@ -19,8 +19,8 @@ function MyOffersComponent() {
 
     return (
         <div className={styles.MyOffersComponent}>
-            {currentUserOffers.length ? currentUserOffers.map((currentOffer) => {
-                const isSaved = Boolean(currentUser.SavedOffers.find((currentSavedOffer) => currentOffer.id === currentSavedOffer.id))
+            {currentUserOffers?.length ? currentUserOffers.map((currentOffer) => {
+               const isSaved = Boolean(currentUser.SavedOffers.find((currentSavedOffer) => currentOffer.id === currentSavedOffer.id))
 
                 return <ExtendedCarCard
                     isOwnOffer={true}
@@ -31,6 +31,6 @@ function MyOffersComponent() {
         </div>
 
     );
-}
+})
 
 export default MyOffersComponent;

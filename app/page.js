@@ -23,9 +23,6 @@ export default function Home() {
 
   const dispatch = useDispatch()
   const currentUser = useSelector(selectCurrentUser)
-  const state = useSelector(state => state)
-
-  console.log(state)
 
   useEffect(() => {
     if (currentUser) {
