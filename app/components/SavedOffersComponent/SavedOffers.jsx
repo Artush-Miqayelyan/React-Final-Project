@@ -20,7 +20,7 @@ function SavedOffers() {
 
     return (
         <div className={styles.SavedOffers}>
-            {SavedOffers.length ? SavedOffers.map((currentSavedOffer) => {
+            {SavedOffers?.length ? SavedOffers.map((currentSavedOffer) => {
             
             const isOwnOffer = Boolean(currentUser.offers.find(currentOffer => currentOffer.id === currentSavedOffer.id))
 

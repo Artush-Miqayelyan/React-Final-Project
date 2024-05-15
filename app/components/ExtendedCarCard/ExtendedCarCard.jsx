@@ -34,9 +34,17 @@ function ExtendedCarCard({ isOwnOffer, isSaved, car }) {
     const [imgSrc, setImgSrc] = useState(img[0]?.imgUrl)
     const handleOnMouseEnter = () => setImgSrc(img[1]?.imgUrl)
     const handleOnMouseLeave = () => setImgSrc(img[0]?.imgUrl)
-    
-    const handleUnsaveValue = () => setIsSavedValue(false)
-    const handleSaveValue = () => setIsSavedValue(true)
+
+    const handleUnsaveValue = (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        setIsSavedValue(false)
+    }
+    const handleSaveValue = (event) => {
+        event.stopPropagation();
+        event.preventDefault();
+        setIsSavedValue(true)
+    }
 
 
     function handleOnSave(currentUserID, updatedUserWithNewSavedOffers) {
@@ -64,6 +72,7 @@ function ExtendedCarCard({ isOwnOffer, isSaved, car }) {
     }
 
     function handleOnOfferDelete(currentUserID, updatedUserWithDeletedOffers) {
+
         fetch(`http://localhost:4000/users/${currentUserID}`, {
             method: "PATCH",
             headers: {
@@ -104,7 +113,7 @@ function ExtendedCarCard({ isOwnOffer, isSaved, car }) {
                 </div>
                 {isSavedValue ? <IconButton
                     className={styles.saveBtn}
-                    onClick={() => {
+                    onClick={(e) => {
                         const updatedSavedOffers = currentUser.SavedOffers.filter(currentSavedOffer => currentSavedOffer.id !== id)
 
                         const updatedUserWithUnSavedOffer = {
@@ -112,7 +121,7 @@ function ExtendedCarCard({ isOwnOffer, isSaved, car }) {
                             SavedOffers: [...updatedSavedOffers]
                         }
 
-                        handleUnsaveValue()
+                        handleUnsaveValue(e)
                         handleOnUnsave(currentUser.id, updatedUserWithUnSavedOffer)
                     }}>
                     <FavoriteIcon color='primary' />
@@ -120,24 +129,37 @@ function ExtendedCarCard({ isOwnOffer, isSaved, car }) {
                     :
                     <IconButton
                         className={styles.saveBtn}
-                        onClick={() => {
+                        onClick={(e) => {
 
                             const updatedUserWithNewSavedOffers = {
                                 ...currentUser,
                                 SavedOffers: [...currentUser.SavedOffers, car]
                             }
 
-                            handleSaveValue()
+                            handleSaveValue(e)
                             handleOnSave(currentUser.id, updatedUserWithNewSavedOffers)
                         }}>
                         <FavoriteBorderIcon />
                     </IconButton>}
                 {isOwnOffer ? <IconButton
                     className={styles.deleteBtn}
-                    onClick={() => setIsDeleteOfferWarningVisible(true)}>
+                    onClick={(e) => {
+                        const updatedOffers = currentUser.offers.filter((current) => current.id !== id)
+                        const updatedSavedOffers = currentUser.SavedOffers.filter((current) => current.id !== id)
+
+                        const updatedUserWithDeletedOffer = {
+                            ...currentUser,
+                            offers: [...updatedOffers],
+                            SavedOffers: [...updatedSavedOffers]
+                        }
+
+                        e.stopPropagation()
+                        e.preventDefault()
+                        handleOnOfferDelete(currentUser.id, updatedUserWithDeletedOffer)
+                    }}>
                     <DeleteIcon color='error' />
                 </IconButton> : null}
-                {isDeleteOfferWarningVisible
+                {/* {isDeleteOfferWarningVisible
                     ? <Alert severity="warning">
                         After deletion you will not be able to restore the offer , delete ?
                         <Button variant="text" onClick={() => {
@@ -157,7 +179,7 @@ function ExtendedCarCard({ isOwnOffer, isSaved, car }) {
                         <Button variant="text" onClick={setIsDeleteOfferWarningVisible(false)}>No</Button>
                     </Alert>
                     : null
-                }
+                } */}
             </div>
         </Link>
     );
