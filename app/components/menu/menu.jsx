@@ -11,12 +11,16 @@ import Toyota from "../../../public/carsLogo/Toyota.png"
 import Volkswagen from "../../../public/carsLogo/Volkswagen.png"
 import Image from "next/image"
 import Tooltip from '@mui/material/Tooltip';
-
+import { useDispatch, useSelector } from "react-redux"
+import { dispatchMarksInputValue } from "@/app/redux/features/filterProps/filterPropsSlice"
+import Link from "next/link"
 
 function Menu() {
 
+    const dispatch = useDispatch()
+
     const carsLogo = [
-        { name: "Mercedes Benz", src: MercedesBenz },
+        { name: "Mercedes-Benz", src: MercedesBenz },
         { name: "BMW", src: BMW },
         { name: "Chevrolet", src: Chevrolet },
         { name: "Tesla", src: Tesla },
@@ -28,26 +32,32 @@ function Menu() {
         { name: "Volkswagen", src: Volkswagen },
     ]
 
-
     return (
         <div className={styles.menu}>
             {
                 carsLogo.map((logo, index) => {
                     return <div key={index} className={styles.carLogo}>
+                                                    <Link href="/cars/all">
+
                         <Tooltip
                             title={logo.name}
                             arrow
                             TransitionProps={{ timeout: 700 }}
                         >
-                            <Image
-                                src={logo.src}
-                                alt="carLogo"
-                                fill
-                                style={{ objectFit: "cover", mixBlendMode: "multiply", cursor: "pointer" }}
-                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            // layout="responsive"
-                            />
+                                <Image
+                                    onClick={() => {
+                                        dispatch(dispatchMarksInputValue(logo.name))
+                                    }}
+                                    src={logo.src}
+                                    alt="carLogo"
+                                    fill
+                                    style={{ objectFit: "cover", mixBlendMode: "multiply", cursor: "pointer" }}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                // layout="responsive"
+                                />
                         </Tooltip>
+                        </Link>
+
                     </div>
                 })
             }

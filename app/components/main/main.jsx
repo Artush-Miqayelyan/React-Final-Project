@@ -19,6 +19,7 @@ import CarCard from "../carcard/carCard";
 
 import Button from '@mui/material/Button';
 import Skeleton from '@mui/material/Skeleton';
+import Link from "next/link";
 
 function Main() {
   const cars = useSelector(selectCars);

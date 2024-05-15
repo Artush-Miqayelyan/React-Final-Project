@@ -63,7 +63,7 @@ function Header() {
                     {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : modalPosition === "middle" ? <SignIn  closeModal = {closeModal}/> : null}
                 </Modal>}
 
-            {isDefinedPathForHeader(pathname) || pathname.includes('/cars/') ?
+            {isDefinedPathForHeader(pathname) || pathname.includes('/cars/') || pathname.includes("/dealers/")?
                 <header className={styles.header}>
                     <div className={styles.menuSec} onClick={openMenuModal}>
                         <MenuIcon fontSize="large" />

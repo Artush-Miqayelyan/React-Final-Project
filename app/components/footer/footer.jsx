@@ -15,7 +15,7 @@ function Footer() {
   const pathname = usePathname()
 
   return <>
-    {isDefinedPathForfooter(pathname) || pathname.includes('/cars/')?
+    {isDefinedPathForfooter(pathname) || pathname.includes('/cars/') || pathname.includes("/dealers/")?
       <div className={styles.footerContainer} >
         <div className={styles.footerTop}>
           <div className={styles.logo}>
