@@ -11,14 +11,18 @@ import {
   selectCars
 } from "../../redux/features/autoshop/autoshopSlice";
 
+import {
+  selectCurrentUser
+} from '@/app/redux/features/currentUser/currentUserSlice'
+
 import CarCard from "../carcard/carCard";
-import Link from "next/link";
 
 import Button from '@mui/material/Button';
 import Skeleton from '@mui/material/Skeleton';
 
 function Main() {
   const cars = useSelector(selectCars);
+  const currentUser = useSelector(selectCurrentUser)
 
   const [ontop, setOntop] = useState(true)
   const [urgentSale, setUrgentSale] = useState(true)
@@ -35,33 +39,29 @@ function Main() {
         <div className={styles.carsContainer}>
           {ontop ? <>
             {minOntop.length ? minOntop.map((car) => {
-              return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
-                <CarCard
-                  key={car.id}
-                  img={car.img[0].imgUrl}
-                  price={car.price}
-                  year={car.year}
-                  mark={car.brand}
-                  model={car.model}
-                  priority={car.priority}
-                />
-              </Link>
+
+              const isSaved = Boolean(currentUser.SavedOffers?.find(currentSavedOffer => currentSavedOffer.id === car.id))
+
+              return <CarCard
+                key={car.id}
+                isSaved={isSaved}
+                car={car}
+              />
+
             }) : <Skeleton variant="rectangular" width={1100} height={800} />}
            <Link href="/cars/all/emphatic"><Button variant="contained">Show all top offers</Button></Link> 
           </> : <>
             {cars.length ? cars.map((car) => {
               if (car.priority === "ontop") {
-                return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
-                  <CarCard
-                    key={car.id}
-                    img={car.img[0].imgUrl}
-                    price={car.price}
-                    year={car.year}
-                    mark={car.brand}
-                    model={car.model}
-                    priority={car.priority}
-                  />
-                </Link>
+
+                const isSaved = Boolean(currentUser.SavedOffers?.find(currentSavedOffer => currentSavedOffer.id === car.id))
+
+                return <CarCard
+                  key={car.id}
+                  isSaved={isSaved}
+                  car={car}
+                />
+
               }
             }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setOntop(!ontop)}>Show less</Button>
@@ -73,33 +73,27 @@ function Main() {
         <div className={styles.carsContainer}>
           {urgentSale ? <>
             {minUrgentSale.length ? minUrgentSale.map((car) => {
-              return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
-                <CarCard
-                  key={car.id}
-                  img={car.img[0].imgUrl}
-                  price={car.price}
-                  year={car.year}
-                  mark={car.brand}
-                  model={car.model}
-                  priority={car.priority}
-                />
-              </Link>
+
+              const isSaved = Boolean(currentUser.SavedOffers?.find(currentSavedOffer => currentSavedOffer.id === car.id))
+
+              return <CarCard
+                key={car.id}
+                isSaved={isSaved}
+                car={car}
+              />
             }) : <Skeleton variant="rectangular" width={1100} height={800} />}
            <Link href="/cars/all/urgent"><Button variant="contained">Show all urgent offers</Button></Link> 
           </> : <>
             {cars.length ? cars.map((car) => {
               if (car.priority === "urgent sale") {
-                return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
-                  <CarCard
-                    key={car.id}
-                    img={car.img[0].imgUrl}
-                    price={car.price}
-                    year={car.year}
-                    mark={car.brand}
-                    model={car.model}
-                    priority={car.priority}
-                  />
-                </Link>
+
+                const isSaved = Boolean(currentUser.SavedOffers?.find(currentSavedOffer => currentSavedOffer.id === car.id))
+
+                return <CarCard
+                  key={car.id}
+                  isSaved={isSaved}
+                  car={car}
+                />
               }
             }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setUrgentSale(!urgentSale)}>Show less</Button>
@@ -112,33 +106,27 @@ function Main() {
         <div className={styles.carsContainer}>
           {officialDiller ? <>
             {minOfficialDiller.length ? minOfficialDiller.map((car) => {
-              return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
-                <CarCard
-                  key={car.id}
-                  img={car.img[0].imgUrl}
-                  price={car.price}
-                  year={car.year}
-                  mark={car.brand}
-                  model={car.model}
-                  priority={car.priority}
-                />
-              </Link>
+
+              const isSaved = Boolean(currentUser.SavedOffers?.find(currentSavedOffer => currentSavedOffer.id === car.id))
+
+              return <CarCard
+                key={car.id}
+                isSaved={isSaved}
+                car={car}
+              />
             }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setOfficialDiller(!officialDiller)}>Show more</Button>
           </> : <>
             {cars.length ? cars.map((car) => {
               if (car.isOfficialDiller === true) {
-                return <Link className={styles.SingleCarLink} href={`/cars/${car.id}`} >
-                  <CarCard
-                    key={car.id}
-                    img={car.img[0].imgUrl}
-                    price={car.price}
-                    year={car.year}
-                    mark={car.brand}
-                    model={car.model}
-                    priority={car.priority}
-                  />
-                </Link>
+
+                const isSaved = Boolean(currentUser.SavedOffers?.find(currentSavedOffer => currentSavedOffer.id === car.id))
+
+                return <CarCard
+                  key={car.id}
+                  isSaved={isSaved}
+                  car={car}
+                />
               }
             }) : <Skeleton variant="rectangular" width={1100} height={800} />}
             <Button variant="contained" onClick={() => setOfficialDiller(!officialDiller)}>Show less</Button>

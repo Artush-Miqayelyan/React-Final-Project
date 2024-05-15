@@ -68,6 +68,9 @@ function ChangePassword() {
             .then(res => res.json())
             .then((res) => {
                 dispatch(setCurrentUser(res))
+                setOldPasswordInputValue('')
+                setNewPasswordInputValue('')
+                setRepeatNewPasswordInputValue('')
             })
     }
 

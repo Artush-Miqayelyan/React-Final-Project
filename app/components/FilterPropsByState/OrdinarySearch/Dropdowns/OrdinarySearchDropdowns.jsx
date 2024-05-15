@@ -49,7 +49,6 @@ const OrdinarySearchDropdowns = memo(() => {
             }
             return accumulator
         } , filtered)
-
         dispatch(setFilteredCars(res))
     } , [filterProps])
 

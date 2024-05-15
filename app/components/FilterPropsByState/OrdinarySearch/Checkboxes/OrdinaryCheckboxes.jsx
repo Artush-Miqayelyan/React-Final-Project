@@ -3,7 +3,7 @@ import React, {
     useEffect,
     memo
 } from 'react';
-import styles from './OrdinarySearchCheckboxes.module.css'
+import styles from './OrdinaryCheckboxes.module.css'
 
 import FILTER_CHECKBOXES from '@/app/constants/FilterDropdownsCheckboxes/Checkboxes'
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -28,11 +28,7 @@ import {
     selectFilterProps
 } from '@/app/redux/features/filterProps/filterPropsSlice'
 
-const OridnarySearchCheckboxes = memo(() => {
-
-    useEffect(() => {
-        console.log('Component Re-rendered')
-    } , )
+const OridnaryCheckboxes = memo(() => {
 
     const dispatch = useDispatch()
     const filterProps = useSelector(selectFilterProps)
@@ -46,15 +42,11 @@ const OridnarySearchCheckboxes = memo(() => {
         const res = props.reduce((accumulator, currentProp) => {
             if (filterProps[currentProp].value) {
                 return filterProps[currentProp].StartFilter(accumulator)
-                // console.log("Filter Result :::::: " , result)
             }
             return accumulator
         }, filtered)
-
-        console.log("Result :::::", res)
+        dispatch(setFilteredCars(res))
     }, [filterProps])
-
-    console.log('hkhjhajkhjkhkjjkk')
 
     const [customsClearedCheckboxValue, setCustomsClearedCheckboxValue] = useState(false)
     const [installmentPaymentCheckboxValue, setInstallmentPaymentCheckboxValue] = useState(false)
@@ -63,10 +55,9 @@ const OridnarySearchCheckboxes = memo(() => {
     const [officalDillersCheckboxValue, setOfficalDillersCheckboxValue] = useState(false)
 
     function handleCustomsClearedCheckboxValue() {
-        debugger
+        console.log(!customsClearedCheckboxValue)
         setCustomsClearedCheckboxValue(!customsClearedCheckboxValue)
         dispatch(dispatchCustomsClearedCheckboxValue(!customsClearedCheckboxValue))
-        console.log("Customs cleared")
     }
 
     function handleInstallmentPaymentCheckboxValue() {
@@ -125,4 +116,4 @@ const OridnarySearchCheckboxes = memo(() => {
     );
 })
 
-export default OridnarySearchCheckboxes;
+export default OridnaryCheckboxes;
