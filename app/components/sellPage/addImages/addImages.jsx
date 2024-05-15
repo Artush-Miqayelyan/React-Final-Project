@@ -17,14 +17,18 @@ function AddImages({ control, name, images, setImages }) {
         for (let i = 0; i < files.length; i++) {
             if (files[i].type.split("/")[0] !== "image") continue;
             if (!images.some((e) => e.name === files[i].name)) {
-                setImages((prevImages) => [
-                    ...prevImages,
-                    {
-                        id: Math.random().toString(),
-                        name: files[i].name,
-                        imgUrl : URL.createObjectURL(files[i])
-                    }
-                ])
+                const render = new FileReader();
+                render.readAsDataURL(files[i])
+                render.onloadend = () => {
+                    setImages((prevImages) => [
+                        ...prevImages,
+                        {
+                            id: Math.random().toString(),
+                            name: files[i].name,
+                            imgUrl: render.result
+                        }
+                    ])
+                }
             }
         }
 
@@ -49,14 +53,18 @@ function AddImages({ control, name, images, setImages }) {
         for (let i = 0; i < files.length; i++) {
             if (files[i].type.split("/")[0] !== "image") continue;
             if (!images.some((e) => e.name === files[i].name)) {
-                setImages((prevImages) => [
-                    ...prevImages,
-                    {
-                        id: Math.random(),
-                        name: files[i].name,
-                        imgUrl: URL.createObjectURL(files[i])
-                    }
-                ])
+                const render = new FileReader();
+                render.readAsDataURL(files[i])
+                render.onloadend = () => {
+                    setImages((prevImages) => [
+                        ...prevImages,
+                        {
+                            id: Math.random().toString(),
+                            name: files[i].name,
+                            imgUrl: render.result
+                        }
+                    ])
+                }
             }
         }
     }
@@ -95,7 +103,7 @@ function AddImages({ control, name, images, setImages }) {
                                     src={image.imgUrl}
                                     fill
                                     alt={image.name}
-                                    style={{objectFit : "cover"}}
+                                    style={{ objectFit: "cover" }}
                                 />
                             </div>
                         })

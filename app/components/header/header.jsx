@@ -60,7 +60,7 @@ function Header() {
         <>
             {modalPosition &&
                 <Modal position={modalPosition} closeModal={closeModal}>
-                    {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : modalPosition === "middle" ? <SignIn /> : null}
+                    {modalPosition === "left" ? <MenuSide closeModal={closeModal} /> : modalPosition === "right" ? <MessengesSide closeModal={closeModal} /> : modalPosition === "middle" ? <SignIn  closeModal = {closeModal}/> : null}
                 </Modal>}
 
             {isDefinedPathForHeader(pathname) || pathname.includes('/cars/') ?

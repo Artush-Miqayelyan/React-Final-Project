@@ -47,7 +47,7 @@ function Main() {
                 />
               </Link>
             }) : <Skeleton variant="rectangular" width={1100} height={800} />}
-            <Button variant="contained" onClick={() => setOntop(!ontop)}>Show more</Button>
+           <Link href="/cars/all/emphatic"><Button variant="contained">Show all top offers</Button></Link> 
           </> : <>
             {cars.length ? cars.map((car) => {
               if (car.priority === "ontop") {
@@ -85,7 +85,7 @@ function Main() {
                 />
               </Link>
             }) : <Skeleton variant="rectangular" width={1100} height={800} />}
-            <Button variant="contained" onClick={() => setUrgentSale(!urgentSale)}>Show more</Button>
+           <Link href="/cars/all/urgent"><Button variant="contained">Show all urgent offers</Button></Link> 
           </> : <>
             {cars.length ? cars.map((car) => {
               if (car.priority === "urgent sale") {

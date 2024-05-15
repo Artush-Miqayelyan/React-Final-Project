@@ -27,9 +27,9 @@ function Description({ control, errors, watch }) {
                     name="brand"
                     message="Brand is required"
                 />
-                {watch().mark && <AutoComplete
+                {watch().brand && <AutoComplete
                     control={control}
-                    options={CARS_AND_MODELS[watch().mark]}
+                    options={CARS_AND_MODELS[watch().brand]}
                     errors={errors}
                     name="model"
                     message="Model is required"
@@ -100,7 +100,6 @@ function Description({ control, errors, watch }) {
                     name="drive"
                     message="Drive type is required"
                 />
-
             </div>
             <div className={styles.secRigth}>
                 {!watch().negotiable && <MileageInput
@@ -116,6 +115,13 @@ function Description({ control, errors, watch }) {
                     name="mileage"
                     measure="km"
                     message="Mileage is requred"
+                />
+                  <MileageInput
+                    control={control}
+                    errors={errors}
+                    name="power"
+                    measure="hp"
+                    message="Power is requred"
                 />
                 <CustomCleared
                     control={control}

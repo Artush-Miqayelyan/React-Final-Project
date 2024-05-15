@@ -29,7 +29,7 @@ import {
     SignInToAccount
 } from '../redux/features/IsLoggedIn/IsLoggedInSlice'
 
-function SignIn() {
+function SignIn({closeModal}) {
 
     const dispatch = useDispatch()
     const state = useSelector(state => state)
@@ -66,6 +66,7 @@ function SignIn() {
                         setIsIncorrectDataAlertVisible(false)
                         dispatch(setCurrentUser(user[0]))
                         dispatch(SignInToAccount())
+                        closeModal()
                     } else { //если пароль неверный
                         setIsIncorrectDataAlertVisible(true)
                     }

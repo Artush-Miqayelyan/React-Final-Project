@@ -22,7 +22,6 @@ function AllPage() {
      
     }, [page])
 
-    console.log(data, 'data')
 
     return (
         <div className={styles.allContainer}>
