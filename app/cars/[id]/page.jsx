@@ -26,7 +26,7 @@ function Page({ params }) {
   const [offerOwner, setOfferOwner] = useState('')
   const [car, setCar] = useState('')
   const [imgUrls, setImgUrls] = useState('')
-
+console.log(params,"ded")
   useEffect(() => {
     fetch(`http://localhost:4000/cars/${params.id}`)
       .then(res => res.json())
