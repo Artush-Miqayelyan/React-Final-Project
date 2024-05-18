@@ -37,7 +37,6 @@ function DelaersComponent() {
                                     alt='offcial dealer'
                                 />
                             </Link>
-
                         </div>
                         <div className={styles.DealerName}>
                             {current.username}

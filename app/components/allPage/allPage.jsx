@@ -19,7 +19,7 @@ function AllPage() {
 
     const FilteredCars = useSelector(selectFilteredCars)
     const currentUser = useSelector(selectCurrentUser)
-
+    
     function handleFilteredCarsPagesCount() {
         return Math.ceil(FilteredCars.length / 50)
     }
@@ -33,7 +33,6 @@ function AllPage() {
     const handleOnFilterCarsPageChange = (e, page) => setPageForFilteredCars(page)
 
     useEffect(() => {
-        debugger
         if (pageForFilteredCars === 1) {
             setFilteredDataForPerPage(FilteredCars.slice(0, 50))
         } else {

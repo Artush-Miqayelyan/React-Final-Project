@@ -69,8 +69,6 @@ function SellPage() {
             offers: [...currentUser.offers, fullData]
         }
 
-        debugger
-
         fetch(`http://localhost:4000/users/${currentUser.id}`, {
             method: 'PATCH',
             headers: {
